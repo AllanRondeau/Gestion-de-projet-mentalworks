@@ -7,7 +7,7 @@ require __DIR__("/customer.php");
         private string $email;
         private string $phoneNumber;
         private string $role;
-        private Host $host;
+        private int $host_id;
 
     public function getIdContact(): int
 	{
