@@ -46,4 +46,3 @@
 			$this->notesHost = $notesHost;
 		}
     }
-?>
