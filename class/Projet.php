@@ -2,14 +2,17 @@
     class Projet
     {
         private int $id;
-        private string $name;
-        private string $code;
-        private string $lastpass_folder;
-        private string $link_mock_ups;
-        private int $manage_server;
-        private string $notes;
-        private int $host_id;
-        private int $customer_id;
+
+        public function __construct(
+                private string $name, 
+                private string $code, 
+                private string $lastpass_folder, 
+                private string $link_mock_ups, 
+                private int $manage_server,
+                private string $notes,
+                private ?host $host_id,
+                private ?Customer $customer_id,
+            ){}
 
         public function getId(): ?int
         {
@@ -38,6 +41,14 @@
         public function getNotes(): ?string
         {
             return $this->notes;
+        }
+        public function getHost(): ?host
+        {
+            return $this->host_id;
+        }
+        public function getCustomer(): ?Customer
+        {
+            return $this->customer_id;
         }
 
         public function setName(string $name): void
