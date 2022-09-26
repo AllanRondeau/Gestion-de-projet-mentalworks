@@ -2,8 +2,8 @@
 
 class Environnement
 {
+    private int    $id;
     public function __construct(
-        private int    $id,
         private string $name,
         private string $link,
         private string $ip,
