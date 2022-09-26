@@ -1,5 +1,5 @@
 <?php
-    class host{
+    class Host{
         private int $host_id;
         private string $codeHost;
         private string $nameHost;
