@@ -1,6 +1,6 @@
 <?php
     class host{
-        private int $id;
+        private int $host_id;
         private string $codeHost;
         private string $nameHost;
         private string $notesHost;

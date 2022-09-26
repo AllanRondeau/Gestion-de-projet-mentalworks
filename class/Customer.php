@@ -1,12 +1,14 @@
 <?php
 
-class Customer
+class Customer extends Projet
 {
+    private int $id;
+
     public function __construct(
-        private int $id,
         private string $code,
         private string $name,
-        private string $notes
+        private string $notes,
+        private Projet $projet
     ){}
 
     /**
