@@ -11,6 +11,7 @@ class Environnement
         private string $sshName,
         private string $phpMyAdminLink,
         private int    $ipRestiction,
+        private Projet $projet
 
     )
     {

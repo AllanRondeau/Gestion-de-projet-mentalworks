@@ -8,7 +8,6 @@ class Customer extends Projet
         private string $code,
         private string $name,
         private string $notes,
-        private Projet $projet
     ){}
 
     /**
