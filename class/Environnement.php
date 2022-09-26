@@ -10,7 +10,7 @@ class Environnement
         private int    $sshPort,
         private string $sshName,
         private string $phpMyAdminLink,
-        private int    $ipRestiction,
+        private int    $ipRestriction,
         private Projet $projet
 
     )
@@ -60,9 +60,9 @@ class Environnement
     /**
      * @return int
      */
-    public function getIpRestiction(): int
+    public function getIpRestriction(): int
     {
-        return $this->ipRestiction;
+        return $this->ipRestriction;
     }
 
     /**
@@ -82,6 +82,14 @@ class Environnement
     }
 
     /**
+     * @return Projet
+     */
+    public function getProjet(): Projet
+    {
+        return $this->projet;
+    }
+
+    /**
      * @param string $ip
      */
     public function setIp(string $ip): void
@@ -90,11 +98,11 @@ class Environnement
     }
 
     /**
-     * @param int $ipRestiction
+     * @param int $ipRestriction
      */
-    public function setIpRestiction(int $ipRestiction): void
+    public function setIpRestriction(int $ipRestriction): void
     {
-        $this->ipRestiction = $ipRestiction;
+        $this->ipRestriction = $ipRestriction;
     }
 
     /**
@@ -135,6 +143,14 @@ class Environnement
     public function setSshPort(int $sshPort): void
     {
         $this->sshPort = $sshPort;
+    }
+
+    /**
+     * @param Projet $projet
+     */
+    public function setProjet(Projet $projet): void
+    {
+        $this->projet = $projet;
     }
 
 }

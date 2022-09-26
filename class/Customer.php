@@ -1,6 +1,6 @@
 <?php
 
-class Customer extends Projet
+class Customer
 {
     private int $id;
 
