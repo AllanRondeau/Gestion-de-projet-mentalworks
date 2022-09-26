@@ -1,6 +1,6 @@
 <?php
 
-class Customer extends Projet
+class Customer
 {
     private int $id;
 
@@ -42,6 +42,10 @@ class Customer extends Projet
         return $this->notes;
     }
 
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
     /**
      * @param string $name
      */
