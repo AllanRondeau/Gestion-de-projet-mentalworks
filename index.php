@@ -5,10 +5,7 @@
     require __DIR__."./class/Customer.php";
     require __DIR__."./class/Contact.php";
 
-    $host1 = new Host();
-    $host1->setCodeHost("test");
-    $host1->setNameHost("salut");
-    $host1->setCodeHost("upload");
+    $host1 = new Host("test", "salut", "upload");
     $host1->setId(1);
 
     $customer1 = new Customer("sbhdf", "sdbkf", "skjdbf");

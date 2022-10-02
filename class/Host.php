@@ -1,10 +1,14 @@
 <?php
     class Host
 	{
-        private int $id;
-        private string $codeHost;
-        private string $nameHost;
-        private string $notesHost;
+		private int $id;
+		
+		public function __construct(
+			private string $codeHost, 
+			private string $nameHost, 
+			private string $notesHost)
+		{
+		}
 
 		public function getId(): int
 		{
