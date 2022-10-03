@@ -6,17 +6,17 @@
     require __DIR__."./class/Contact.php";
 
     $host1 = new Host("test", "salut", "upload");
-    $host1->setId(1);
+    var_dump($host1->getId());
 
     $customer1 = new Customer("sbhdf", "sdbkf", "skjdbf");
-    $customer1->setId(1);
+    var_dump($customer1->getId());
 
     $projet1 = new Projet("premier projet", "patate", "racine", "sbhdof", 1, "attention", $host1, $customer1);
-    var_dump($projet1->getHost()->getId());
+    var_dump($projet1->getId());
     var_dump($projet1->getCustomer()->getId());
 
-    $environnement = new Environnement("environment1", "http://", "000.000.000",22, "ssh", "localhost", 232, $projet1);
-    var_dump($environnement->getProjet()->getHost());
+    $environnement = new Environnement("sdf", "http://", "000.000.000",22, "ssh", "localhost", 555, $projet1);
+    var_dump($environnement->getId());
     var_dump($environnement->getProjet()->getCustomer());
 
     $contact1 = new Contact("email@gmail.com", "06 36 98 65 74", "admin", $host1, $customer1);
