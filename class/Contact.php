@@ -1,76 +1,64 @@
 <?php
-    class Contact
+class Contact
+{
+	private int $id;
+	public function __construct(
+		private string $email,
+		private string $phoneNumber,
+		private string $role,
+		private Host $host,
+		private Customer $customer,
+	)
+	{}
+	public function getMail(): string
 	{
-		private int $id;
+		return $this->email;
+	}
 
-		public function __construct(
-			private string $email,
-			private string $phoneNumber,
-			private string $role,
-			private Host $host,
-			private Customer $customer,
-		)
-		{}
-		
-		public function getId(): int
-		{
-			return $this->id;
-		}
+	public function setMail(string $email): void
+	{
+		$this->email = $email;
+	}
 
-		public function setId(string $id): void
-		{
-			$this->id = $id;
-		}
+	public function getPhone(): string
+	{
+		return $this->phoneNumber;
+	}
 
-		public function getMail(): string
-		{
-			return $this->email;
-		}
+	public function setPhone(string $phoneNumber): void
+	{
+		$this->phoneNumber = $phoneNumber;
+	}
 
-		public function setMail(string $email): void
-		{
-			$this->email = $email;
-		}
+	public function getRole(): string
+	{
+		return $this->role;
+	}
 
-		public function getPhone(): string
-		{
-			return $this->phoneNumber;
-		}
+	public function setRole(string $role): void
+	{
+		$this->role = $role;
+	}
 
-		public function setPhone(string $phoneNumber): void
-		{
-			$this->phoneNumber = $phoneNumber;
-		}
+	public function getHost(): Host 
+	{
+		return $this->host;
+	}
 
-		public function getRole(): string
-		{
-			return $this->role;
-		}
+	public function setHost(Host $host): void
+	{
+		$this->host = $host;
+	}
 
-		public function setRole(string $role): void
-		{
-			$this->role = $role;
-		}
+	public function getCustomer(): Customer 
+	{
+		return $this->customer;
+	}
 
-		public function getHost(): Host 
-		{
-			return $this->host;
-		}
+	public function setCustomer(Customer $customer): void
+	{
+		$this->customer = $customer;
+	}
 
-		public function setHost(Host $host): void
-		{
-			$this->host = $host;
-		}
-
-		public function getCustomer(): Customer 
-		{
-			return $this->customer;
-		}
-
-		public function setCustomer(Customer $customer): void
-		{
-			$this->customer = $customer;
-		}
-
-    }
+}
 ?>
