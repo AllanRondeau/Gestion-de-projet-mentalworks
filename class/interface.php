@@ -1,5 +1,5 @@
 <?php
-interface Test
+interface AssesseurInterface
 {
     public function getId(): int;
     public function getName(): ?string;
