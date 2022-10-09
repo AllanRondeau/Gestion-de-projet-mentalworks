@@ -1,5 +1,5 @@
 <?php
-trait Id
+trait AssesseurIdTrait
 {
     public function getId(): int
     {
@@ -7,7 +7,7 @@ trait Id
     }
 }
 
-trait Name
+trait AssesseurNameTrait
 {
     public function getName(): ?string
     {
@@ -19,7 +19,7 @@ trait Name
     } 
 }
 
-trait Code
+trait AssesseurCodeTrait
 {
     public function getCode(): ?string
     {
@@ -31,7 +31,7 @@ trait Code
     }
 }
 
-trait Notes
+trait AssesseurNotesTrait
 {
     public function getNotes(): ?string
     {
