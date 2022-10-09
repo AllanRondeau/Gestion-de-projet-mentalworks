@@ -10,4 +10,11 @@ interface AssesseurInterface
     public function setNotes(string $notes): void;
 }
 
+interface AssesseurEnvironnementInterface
+{
+    public function getId(): int;
+    public function getName(): ?string;
+    public function setName(string $name): void;
+}
+
 

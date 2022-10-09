@@ -1,13 +1,8 @@
 <?php
 require_once __DIR__."/trait.php";
 require_once __DIR__."/interface.php";
-interface Test2
-{
-    public function getId(): int;
-    public function getName(): ?string;
-    public function setName(string $name): void;
-}
-class Environnement implements Test2
+
+class Environnement implements AssesseurEnvironnementInterface
 {
     use AssesseurIdTrait, AssesseurNameTrait;
     private int $id;
