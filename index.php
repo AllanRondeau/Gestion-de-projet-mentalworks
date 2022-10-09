@@ -6,9 +6,7 @@ require __DIR__ . "./class/Customer.php";
 require __DIR__ . "./class/Contact.php";
 
 $host1 = new Host("test", "salut", "upload");
-$host1->setId(1);
 $customer1 = new Customer("sbhdf", "sdbkf", "skjdbf");
-$customer1->setId(1);
 $projet1 = new Projet("premier projet", "patate", "racine", "sbhdof", 1, "attention", $host1, $customer1);
 $environnement = new Environnement("environment1", "http://", "000.000.000", 22, "ssh", "localhost", 232, $projet1);
 $contact1 = new Contact("email@gmail.com", "06 36 98 65 74", "admin", $host1, $customer1);

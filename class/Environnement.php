@@ -9,7 +9,7 @@ interface Test2
 }
 class Environnement implements Test2
 {
-    use Id, Name;
+    use AssesseurIdTrait, AssesseurNameTrait;
     private int $id;
     public function __construct(
         private string $name, 

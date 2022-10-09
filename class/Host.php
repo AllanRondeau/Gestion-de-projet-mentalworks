@@ -1,9 +1,9 @@
 <?php
-require_once __DIR__."/trait.php";
-require_once __DIR__."/interface.php";
-class Host implements Test
+require_once __DIR__."./trait.php";
+require_once __DIR__."./interface.php";
+class Host implements AssesseurInterface
 {
-	use Id, Name, Code, Notes;
+	use AssesseurIdTrait, AssesseurNameTrait, AssesseurCodeTrait, AssesseurNotesTrait;
 	private int $id;
 	public function __construct
 	(
