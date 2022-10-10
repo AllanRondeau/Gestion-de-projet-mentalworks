@@ -1,7 +1,7 @@
 <?php
-require_once __DIR__."/trait.php";
-require_once __DIR__."/interface.php";
-
+namespace App\Entity;
+use App\AssesseurEnvironnementInterface;
+use App\trait\AssesseurIdTrait, App\trait\AssesseurNameTrait;
 class Environnement implements AssesseurEnvironnementInterface
 {
     use AssesseurIdTrait, AssesseurNameTrait;

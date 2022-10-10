@@ -1,6 +1,7 @@
 <?php
-require_once __DIR__."/trait.php";
-require_once __DIR__."/interface.php";
+namespace App\Entity;
+use App\AssesseurInterface;
+use App\trait\AssesseurIdTrait, App\trait\AssesseurNameTrait, App\trait\AssesseurCodeTrait, App\trait\AssesseurNotesTrait;
 class Customer implements AssesseurInterface
 {
     use AssesseurIdTrait, AssesseurNameTrait, AssesseurCodeTrait, AssesseurNotesTrait;

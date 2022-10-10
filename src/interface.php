@@ -1,4 +1,5 @@
 <?php
+namespace App;
 interface AssesseurInterface
 {
     public function getId(): int;

@@ -1,4 +1,5 @@
 <?php
+namespace App\trait;
 trait AssesseurIdTrait
 {
     public function getId(): int

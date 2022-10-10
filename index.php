@@ -1,16 +1,17 @@
 <?php
-require __DIR__ . "./class/Host.php";
-require __DIR__ . "./class/Projet.php";
-require __DIR__ . "./class/Environnement.php";
-require __DIR__ . "./class/Customer.php";
-require __DIR__ . "./class/Contact.php";
+require "./src/autoloader.php";
+use App\Entity\Host; 
+use App\Entity\Customer; 
+use App\Entity\Projet; 
+use App\Entity\Environnement; 
+use App\Entity\Contact; 
+
 
 $host1 = new Host("test", "salut", "upload");
 $customer1 = new Customer("sbhdf", "sdbkf", "skjdbf");
 $projet1 = new Projet("premier projet", "patate", "racine", "sbhdof", 1, "attention", $host1, $customer1);
 $environnement = new Environnement("environment1", "http://", "000.000.000", 22, "ssh", "localhost", 232, $projet1);
 $contact1 = new Contact("email@gmail.com", "06 36 98 65 74", "admin", $host1, $customer1);
-
 ?>
 
 <!doctype html>
@@ -37,7 +38,6 @@ $contact1 = new Contact("email@gmail.com", "06 36 98 65 74", "admin", $host1, $c
             <a><i class="fa-regular fa-building"></i>clients</a>
             <a><i class="fa-regular fa-square-check"></i>hébergeurs</a>
         </nav>
-        
         <footer></footer>
     </body>
 </html>
