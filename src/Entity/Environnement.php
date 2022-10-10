@@ -1,10 +1,11 @@
 <?php
 namespace App\Entity;
-use App\AssesseurEnvironnementInterface;
-use App\trait\AssesseurIdTrait, App\trait\AssesseurNameTrait;
-class Environnement implements AssesseurEnvironnementInterface
+use App\Model\Interface\EnvironnementInterface;
+use App\Model\Trait\IdTrait;
+use App\Model\Trait\NameTrait;
+class Environnement implements EnvironnementInterface
 {
-    use AssesseurIdTrait, AssesseurNameTrait;
+    use IdTrait, NameTrait;
     private int $id;
     public function __construct(
         private string $name, 

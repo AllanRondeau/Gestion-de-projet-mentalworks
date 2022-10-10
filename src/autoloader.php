@@ -5,7 +5,7 @@ class Autoloader
     {
         spl_autoload_register(function ($class) {
             $test = explode("\\", $class);
-            if($test[0] == "App")
+            if($test[0] != "src")
             {
                 $test[0] = "src";   
             }
