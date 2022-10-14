@@ -34,12 +34,14 @@ $contact1 = new Contact("email@gmail.com", "06 36 98 65 74", "admin", $host1, $c
         </header>
         <main>
           <nav>
-              <a><i class="fa-solid fa-house"></i>tableau de bord</a>
-              <a><i class="fa-regular fa-user"></i>projets</a>
-              <a><i class="fa-regular fa-building"></i>clients</a>
-              <a><i class="fa-regular fa-square-check"></i>hébergeurs</a>
+              <a id="dashboardNav"><i class="fa-solid fa-house"></i>tableau de bord</a>
+              <a id="projectsNav"><i class="fa-regular fa-user"></i>projets</a>
+              <a id="customerNav"><i class="fa-regular fa-building"></i>clients</a>
+              <a id="hostNav"><i class="fa-regular fa-square-check"></i>hébergeurs</a>
           </nav>
-          <section id="mainContent">
+          <div id="mainContent">
+            <section id="dashboard"></section>
+            <section id="projects"></section>
             <section id="customer">
               <header>
                 <h3>Client</h3>
@@ -58,13 +60,25 @@ $contact1 = new Contact("email@gmail.com", "06 36 98 65 74", "admin", $host1, $c
                   </fieldset>
                 </form>
                 <form method="post" id="updateCustomerForm">
+                  <h4>Nom client</h4>
                   <fieldset>
+                    <label for="nameUpdContact">Nom du contact</label>
+                    <input type="text" name="nameUpdContact">
+                    <label>Rôle</label>
+                    <input type="text" name="roleUpdContact">
+                    <label for="emailUpdContact"></label>
+                    <input type="text" name="emailUpdContact">
+                    <label for="telUpdContact">Téléphone</label>
+                    <input type="tel" name="telUpdContact">
                   </fieldset>
                 </form>
             </section>
-          </section>
+            <section id="host"></section>
+          </div>
         </main>
         <footer></footer>
     </body>
+    <script src="navbar.js"></script>
+    <script src="onload.js"></script>
 </html>
 
