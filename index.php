@@ -1,15 +1,15 @@
 <?php
 require "./src/autoloader.php";
-use App\Entity\Host; 
-use App\Entity\Customer; 
-use App\Entity\Projet; 
-use App\Entity\Environnement; 
-use App\Entity\Contact; 
+use App\Entity\Host;
+use App\Entity\Customer;
+use App\Entity\Project;
+use App\Entity\Environnement;
+use App\Entity\Contact;
 
 
 $host1 = new Host("test", "salut", "upload");
 $customer1 = new Customer("sbhdf", "sdbkf", "skjdbf");
-$projet1 = new Projet("premier projet", "patate", "racine", "sbhdof", 1, "attention", $host1, $customer1);
+$projet1 = new Project("premier projet", "patate", "racine", "sbhdof", 1, "attention", $host1, $customer1);
 $environnement = new Environnement("environment1", "http://", "000.000.000", 22, "ssh", "localhost", 232, $projet1);
 $contact1 = new Contact("email@gmail.com", "06 36 98 65 74", "admin", $host1, $customer1);
 ?>
@@ -32,12 +32,38 @@ $contact1 = new Contact("email@gmail.com", "06 36 98 65 74", "admin", $host1, $c
         <header>
             <img src="images/logo-mentalworks-blanc.png" alt="logo mentalworks">
         </header>
-        <nav>
-            <a><i class="fa-solid fa-house"></i>tableau de bord</a>
-            <a><i class="fa-regular fa-user"></i>projets</a>
-            <a><i class="fa-regular fa-building"></i>clients</a>
-            <a><i class="fa-regular fa-square-check"></i>hébergeurs</a>
-        </nav>
+        <main>
+          <nav>
+              <a><i class="fa-solid fa-house"></i>tableau de bord</a>
+              <a><i class="fa-regular fa-user"></i>projets</a>
+              <a><i class="fa-regular fa-building"></i>clients</a>
+              <a><i class="fa-regular fa-square-check"></i>hébergeurs</a>
+          </nav>
+          <section id="mainContent">
+            <section id="customer">
+              <header>
+                <h3>Client</h3>
+              </header>
+              <button type="button" id="newCustomer">Nouveau client</button>
+              <button type="button" id="updateCustomer">Modifier le client</button>
+              <article>
+                <form method="post" id="newCustomerForm">
+                  <fieldset>
+                    <label for="nameNewCustomer">Nom</label>
+                    <input type="text" name="nameNewCustomer">
+                    <label for="codeNewCustomer">Code interne</label>
+                    <input type="text" name="codeNewCustomer" placeholder="Champ généré automatiquement" disabled>
+                    <label for="quotesNewCustomer">Notes / Remarques</label>
+                    <input type="text" name="quotesNewCustomer">
+                  </fieldset>
+                </form>
+                <form method="post" id="updateCustomerForm">
+                  <fieldset>
+                  </fieldset>
+                </form>
+            </section>
+          </section>
+        </main>
         <footer></footer>
     </body>
 </html>

@@ -14,7 +14,7 @@ class Environnement implements AssesseurEnvironnementInterface
         private string $sshName,
         private string $phpMyAdminLink,
         private int    $ipRestriction,
-        private ?Projet $projet
+        private ?Project $project
     ){$this->id = 0;}
 
     public function getLink(): string
@@ -41,9 +41,9 @@ class Environnement implements AssesseurEnvironnementInterface
     {
         return $this->sshName;
     }
-    public function getProjet(): Projet
+    public function getProject(): Project
     {
-        return $this->projet;
+        return $this->project;
     }
 
     public function setIp(string $ip): void
@@ -70,9 +70,9 @@ class Environnement implements AssesseurEnvironnementInterface
     {
         $this->sshPort = $sshPort;
     }
-    public function setProjet(Projet $projet): void
+    public function setProject(Project $project): void
     {
-        $this->projet = $projet;
+        $this->project = $project;
     }
 
 }
