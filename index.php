@@ -5,6 +5,7 @@ use App\Entity\Customer;
 use App\Entity\Projet; 
 use App\Entity\Environnement; 
 use App\Entity\Contact; 
+use App\HydrateCustomer;
 
 
 $host1 = new Host("test", "salut", "upload");
@@ -12,6 +13,9 @@ $customer1 = new Customer("sbhdf", "sdbkf", "skjdbf");
 $projet1 = new Projet("premier projet", "patate", "racine", "sbhdof", 1, "attention", $host1, $customer1);
 $environnement = new Environnement("environment1", "http://", "000.000.000", 22, "ssh", "localhost", 232, $projet1);
 $contact1 = new Contact("email@gmail.com", "06 36 98 65 74", "admin", $host1, $customer1);
+
+HydrateCustomer::createCustomer(array("Name"=>'sdfsdf',"Code"=>10,"Notes"=>"setset"));
+
 ?>
 
 <!doctype html>

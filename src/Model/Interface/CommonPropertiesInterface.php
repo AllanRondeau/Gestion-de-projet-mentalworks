@@ -1,6 +1,6 @@
 <?php
 namespace App\Model\Interface;
-interface AssesseurInterface
+interface CommonPropertiesInterface
 {
     public function getId(): int;
     public function getName(): ?string;

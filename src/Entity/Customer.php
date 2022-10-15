@@ -1,17 +1,19 @@
 <?php
 namespace App\Entity;
-use App\Model\Interface\AssesseurInterface;
+use App\Model\Interface\CommonPropertiesInterface;
 use App\Model\Trait\IdTrait;
 use App\Model\Trait\NameTrait;
 use App\Model\Trait\CodeTrait;
 use App\Model\Trait\NotesTrait;
-class Customer implements AssesseurInterface
+class Customer implements CommonPropertiesInterface
 {
     use IdTrait, NameTrait, CodeTrait, NotesTrait;
     private int $id;
-    public function __construct(
-        private string $code,
-        private string $name,
-        private string $notes,
-    ){$this->id = 0;}
+    private string $code;
+    private string $name;
+    private string $notes;
+
+    public function __construct()
+    {}
+
 }
