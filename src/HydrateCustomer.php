@@ -8,8 +8,17 @@ class HydrateCustomer
     {
         $newCustomer = new Customer();
         //vérifier si l'objet peut etre null sinon modifier le constructeur
-        $newCustomer->setName($array["Name"]);
-        $newCustomer->setCode($array["Code"]);
-        $newCustomer->setNotes($array["Notes"]);
+        $newCustomer->setName(verifyInput($array["Name"]));
+        $newCustomer->setCode(verifyInput($array["Code"]));
+        $newCustomer->setNotes(verifyInput($array["Notes"]));
+
+        function verifyInput(string $input): string
+        {
+            $input = htmlspecialchars($input);
+            $input = trim($input);
+            $input = stripcslashes($input);
+            return $input;
+
+        }
     }
 }

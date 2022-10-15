@@ -1,26 +1,44 @@
 /* BASE */
 body {
     margin: 0;
-    overflow: hidden;
+    overflow-x: hidden;
     --res: calc(0.01 * 10vmin);
     font-family: 'Open Sans', Arial;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+fieldset{
+    border: none;
+}
+
+/* TYPOGRAPHY */
+h3 {
+    font-size: calc(25 * var(--res));
+}
+
+label{
+    font-size: calc(23*var(--res));
+    font-weight: bold;
+}
+
 /* class to use for JS */
-.hook{
+.hook {
     display: none;
 }
 
-.display{
-    display: unset;
+.display {
+    display: flex;
 }
 
-.activeNavBtn{
+.activeNavBtn {
     background: #cb7857;
     color: white;
 }
 
-.inactiveNavBtn{
+.inactiveNavBtn {
     background: white;
     color: black;
 }
@@ -47,8 +65,8 @@ nav {
     flex-direction: column;
 }
 
-nav a{
-    font-size: calc(28*var(--res));
+nav a {
+    font-size: calc(28 * var(--res));
     text-transform: uppercase;
     padding: 1vh 0 1vh 1vw;
     cursor: pointer;
@@ -56,19 +74,97 @@ nav a{
     border-bottom: 1px solid rgba(115, 115, 115, 0.53);;
 }
 
-nav a:hover, nav a:active{
+nav a:hover, nav a:active {
     background-color: #cb7857;
     color: white;
 }
 
 nav a i {
-    font-size: calc(28*var(--res));
+    font-size: calc(28 * var(--res));
     margin-right: 0.5vw;
 }
 
-footer{
+footer {
     width: 100vw;
     height: 10vh;
     background: rgba(211, 211, 211, 0.62);
     border-top: 1px solid #cb7857;
 }
+
+/* MAIN */
+
+main {
+    display: flex;
+    flex-direction: row;
+}
+
+div {
+    width: 70vw;
+}
+
+section {
+    width: 100vw;
+    height: 100%;
+    background: #D3D3D39E;
+    padding-left: 2vw;
+}
+
+section header {
+    background: none;
+    padding-top: 5vh;
+    height: 7vh;
+}
+
+
+/* CUSTOMER SECTION*/
+#customer button {
+    font-size: calc(18 * var(--res));
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    height: 5vh;
+}
+
+#customer button:hover {
+    font-size: calc(20 * var(--res));
+}
+
+.customerSectionButtonActive {
+    background: white;
+    font-weight: bolder;
+}
+
+article {
+    background: white;
+}
+
+#newCustomerForm fieldset, #updateContactForm fieldset{
+    display: flex;
+    flex-direction: column;
+}
+
+#newCustomerForm input, #updateContactForm input{
+    width: 25vw;
+    height: 4vh;
+    margin-bottom: 2vh;
+}
+
+#updateContactForm button, #newCustomerForm button{
+    position: relative;
+    left: 62vw;
+}
+
+#customer form .cancelBtn{
+    background: white;
+    color: #cb7857;
+    border: 2px solid #cb7857;
+    margin-right: 1vw;
+}
+
+.saveBtn{
+    background: #cb7857;
+    color: white;
+}
+
+
+
