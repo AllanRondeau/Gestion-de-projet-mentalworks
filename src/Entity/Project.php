@@ -5,7 +5,7 @@ use App\Model\Trait\IdTrait;
 use App\Model\Trait\NameTrait;
 use App\Model\Trait\CodeTrait;
 use App\Model\Trait\NotesTrait;
-class Projet implements CommonPropertiesInterface
+class Project implements CommonPropertiesInterface
 {
     use IdTrait, NameTrait, CodeTrait, NotesTrait;
     private int $id;

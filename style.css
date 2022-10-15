@@ -6,6 +6,25 @@ body {
     font-family: 'Open Sans', Arial;
 }
 
+/* class to use for JS */
+.hook{
+    display: none;
+}
+
+.display{
+    display: unset;
+}
+
+.activeNavBtn{
+    background: #cb7857;
+    color: white;
+}
+
+.inactiveNavBtn{
+    background: white;
+    color: black;
+}
+
 /*HEADER*/
 
 header {

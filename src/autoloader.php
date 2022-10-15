@@ -1,7 +1,7 @@
 <?php
 class Autoloader	
 {
-    public static function register()
+    public static function register(): void
     {
         spl_autoload_register(function ($class) {
             $test = explode("\\", $class);
