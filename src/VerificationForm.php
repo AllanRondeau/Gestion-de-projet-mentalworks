@@ -4,16 +4,16 @@ namespace App;
 
 class VerificationForm
 {
-    public static function checkInput($input): string
+    public static function checkInput($input): bool
     {
         if(!empty($input))
         {
             $input = htmlspecialchars($input);
             $input = trim($input);
             $input = stripcslashes($input);
-            return $input;
+            return true;
         }
-        else{return "".$input. "n'est pas une valeur valide";}
+        else{return false;}
         
     }
 }

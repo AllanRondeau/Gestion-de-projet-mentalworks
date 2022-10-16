@@ -1,5 +1,6 @@
 <?php
 require "./src/autoloader.php";
+require "./Connexion/ConnexionBdd.php";
 
 use App\Entity\Host;
 use App\Entity\Customer;
@@ -7,7 +8,10 @@ use App\Entity\Project;
 use App\Entity\Environnement;
 use App\Entity\Contact;
 use App\HydrateCustomer;
+use App\Form\CustomerType;
 
+$conn = new ConnexionBdd("localhost", "gestion_projet", "phpmyadmin", "NewPassword123");
+$co = $conn->Connexion();
 
 $host1 = new Host("test", "salut", "upload");
 $customer1 = new Customer("sbhdf", "sdbkf", "skjdbf");
@@ -15,14 +19,19 @@ $projet1 = new Project("premier projet", "patate", "racine", "sbhdof", 1, "atten
 $environnement = new Environnement("environment1", "http://", "000.000.000", 22, "ssh", "localhost", 232, $projet1);
 $contact1 = new Contact("email@gmail.com", "06 36 98 65 74", "admin", $host1, $customer1);
 
-if(HydrateCustomer::createCustomer(array("Name"=>'sdfsdf',"Code"=>10, "Notes"=>"")))
+if(isset($_POST["customerSaveBtn"]))
 {
-    var_dump(HydrateCustomer::getAttributes());
-}
-else
-{
-    $errorInput = "La saisie n'est pas bonne !";
-    echo $errorInput;
+    if(HydrateCustomer::createCustomer(array("name"=>$_POST["nameNewCustomer"], "code"=>"code".$_POST["nameNewCustomer"], "note"=>$_POST["noteNewCustomer"])))
+    {
+        $cust = HydrateCustomer::getCustomer();
+        $valid = CustomerType::insertCustomer($co, array("name"=>"fritepomme","note"=>"pommefrite"));
+        echo $valid;
+    }
+    else
+    {
+        $errorInput = "La saisie n'est pas bonne !";
+        echo $errorInput;
+    }
 }
 
 ?>
@@ -62,19 +71,19 @@ else
       <button type="button" id="newCustomerBtn">Nouveau client</button>
       <button type="button" id="updateContactBtn">Modifier le client</button>
       <article>
-        <form method="post" id="newCustomerForm">
+        <form method="post" id="newCustomerForm" action="">
           <fieldset>
             <label for="nameNewCustomer">Nom</label>
             <input type="text" name="nameNewCustomer">
             <label for="codeNewCustomer">Code interne</label>
             <input type="text" name="codeNewCustomer" placeholder="Champ généré automatiquement" disabled>
-            <label for="quotesNewCustomer">Notes / Remarques</label>
-            <input type="text" name="quotesNewCustomer">
+            <label for="noteNewCustomer">Notes / Remarques</label>
+            <input type="text" name="noteNewCustomer">
           </fieldset>
             <button type="submit" name="customerCancelBtn" class="cancelBtn">Annuler</button>
-            <button type="submit" name="customerSaveBtn" class="saveBtn">Sauvegarder</button>
+            <button type="submit" name="customerSaveBtn" class="saveBtn">Ajouter</button>
         </form>
-        <form method="post" id="updateContactForm">
+        <form method="post" id="updateContactForm" action="">
           <fieldset>
             <label for="nameUpdContact">Nom du contact</label>
             <input type="text" name="nameUpdContact">

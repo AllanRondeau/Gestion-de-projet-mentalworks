@@ -14,24 +14,28 @@ class HydrateCustomer
         {
             // si pas valide alors return le champ qui n'est pas bon 
             $test = VerificationForm::checkInput($valueInput);
-            if($test != $valueInput)
+            if(!$test)
             {
-                return FALSE;
+                return false;
             }
             else
             {
-                $check = TRUE;
+                $check = true;
             }
         }
         if($check)
         {
-            HydrateCustomer::$validCustomer = new Customer($array["Name"], $array["Code"], $array["Notes"]);
-            return TRUE;
+            HydrateCustomer::$validCustomer = new Customer($array["code"], $array["name"], $array["note"]);
+            return true;
         }
     }
-    public static function getAttributes()
+    public static function getAttributes(): void
     {
-        $customer = HydrateCustomer::$validCustomer;
-        return array($customer->getName(), $customer->getCode(), $customer->getNotes());
+        echo HydrateCustomer::$validCustomer->getName();
+    }
+
+    public static function getCustomer(): Customer
+    {
+        return HydrateCustomer::$validCustomer;
     }
 }
