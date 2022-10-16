@@ -29,6 +29,7 @@ class HydrateCustomer
             return true;
         }
     }
+    
     public static function getAttributes(): void
     {
         echo HydrateCustomer::$validCustomer->getName();

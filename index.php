@@ -24,7 +24,7 @@ if(isset($_POST["customerSaveBtn"]))
     if(HydrateCustomer::createCustomer(array("name"=>$_POST["nameNewCustomer"], "code"=>"code".$_POST["nameNewCustomer"], "note"=>$_POST["noteNewCustomer"])))
     {
         $cust = HydrateCustomer::getCustomer();
-        $valid = CustomerType::insertCustomer($co, array("name"=>"fritepomme","note"=>"pommefrite"));
+        $valid = CustomerType::insertCustomer($co, array("name"=>$_POST["nameNewCustomer"], "code"=>"code".$_POST["nameNewCustomer"], "note"=>$_POST["noteNewCustomer"]));
         echo $valid;
     }
     else
@@ -76,12 +76,12 @@ if(isset($_POST["customerSaveBtn"]))
             <label for="nameNewCustomer">Nom</label>
             <input type="text" name="nameNewCustomer">
             <label for="codeNewCustomer">Code interne</label>
-            <input type="text" name="codeNewCustomer" placeholder="Champ généré automatiquement" disabled>
+            <input type="text" name="codeNewCustomer" placeholder="Champ généré automatiquement" disable>
             <label for="noteNewCustomer">Notes / Remarques</label>
             <input type="text" name="noteNewCustomer">
           </fieldset>
             <button type="submit" name="customerCancelBtn" class="cancelBtn">Annuler</button>
-            <button type="submit" name="customerSaveBtn" class="saveBtn">Ajouter</button>
+            <button type="submit" name="customerSaveBtn" class="saveBtn">Sauvegarder</button>
         </form>
         <form method="post" id="updateContactForm" action="">
           <fieldset>

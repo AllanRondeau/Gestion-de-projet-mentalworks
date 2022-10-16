@@ -9,7 +9,7 @@ class CustomerType
         try
         {
             $reqInsert = $co->prepare("INSERT INTO customer(code, name, note) VALUES(?, ?, ?)");
-            $reqInsert->execute(array(700, $postData["name"], $postData["note"]));
+            $reqInsert->execute(array($postData["code"], $postData["name"], $postData["note"]));
             return "Insertion réussie";
         }
         catch(Exception $e)
