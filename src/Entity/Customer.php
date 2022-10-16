@@ -9,11 +9,13 @@ class Customer implements CommonPropertiesInterface
 {
     use IdTrait, NameTrait, CodeTrait, NotesTrait;
     private int $id;
-    private string $code;
-    private string $name;
-    private string $notes;
 
-    public function __construct()
+
+    public function __construct(    
+        private string $code,
+        private string $name,
+        private string $notes,
+        )
     {}
 
 }

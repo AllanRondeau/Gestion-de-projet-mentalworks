@@ -15,7 +15,15 @@ $projet1 = new Project("premier projet", "patate", "racine", "sbhdof", 1, "atten
 $environnement = new Environnement("environment1", "http://", "000.000.000", 22, "ssh", "localhost", 232, $projet1);
 $contact1 = new Contact("email@gmail.com", "06 36 98 65 74", "admin", $host1, $customer1);
 
-HydrateCustomer::createCustomer(array("Name" => 'sdfsdf', "Code" => 10, "Notes" => "setset"));
+if(HydrateCustomer::createCustomer(array("Name"=>'sdfsdf',"Code"=>10, "Notes"=>"")))
+{
+    var_dump(HydrateCustomer::getAttributes());
+}
+else
+{
+    $errorInput = "La saisie n'est pas bonne !";
+    echo $errorInput;
+}
 
 ?>
 
