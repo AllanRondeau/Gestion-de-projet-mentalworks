@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : dim. 09 oct. 2022 à 15:42
--- Version du serveur : 10.4.22-MariaDB
--- Version de PHP : 8.1.1
+-- Généré le : dim. 16 oct. 2022 à 18:05
+-- Version du serveur : 10.4.21-MariaDB
+-- Version de PHP : 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,16 +41,16 @@ CREATE TABLE `contact` (
 --
 
 INSERT INTO `contact` (`id`, `email`, `phone_number`, `role`, `host_id`, `customer_id`) VALUES
-(1, 'email1@gmail.com', '0666666666', '1', 1, 1),
-(2, 'email2@gmail.com', '0777777777', '0', 2, 2),
-(3, 'email3@gmail.com', '0677667766', '1', 3, 3),
-(4, 'email4@gmail.com', '0676767676', '1', 4, 4),
-(5, 'email5@gmail.com', '0645673421', '0', 5, 5),
-(6, 'email6@gmail.com', '0789094312', '1', 1, 3),
-(7, 'email7@gmail.com', '0111111111', '0', 5, 5),
-(8, 'email8@gmail.com', '0234567890', '1', 2, 1),
-(9, 'email9@gmail.com', '0222222222', '0', 5, 7),
-(10, 'email10@gmail.com', '0232233223', '1', 10, 10);
+(1, 'armand.decormeille@gmail.com', '0666666666', '1', 1, 1),
+(2, 'allan.rondeau@gmail.com', '0777777777', '0', 2, 2),
+(3, 'ewan.quioc@gmail.com', '0677667766', '1', 3, 3),
+(4, 'fetih.ammar@gmail.com', '0676767676', '1', 4, 4),
+(5, 'mickael.idasiak@gmail.com', '0645673421', '0', 5, 5),
+(6, 'jeff.martins@gmail.com', '0789094312', '1', 1, 6),
+(7, 'enzo.nga@gmail.com', '0111111111', '0', 5, 7),
+(8, 'theo.grave@gmail.com', '0234567890', '1', 2, 8),
+(9, 'loris.daca@gmail.com', '0222222222', '0', 5, 9),
+(10, 'tristan.ducrocq@gmail.com', '0232233223', '1', 10, 10);
 
 -- --------------------------------------------------------
 
@@ -70,16 +70,16 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`id`, `code`, `name`, `note`) VALUES
-(1, 'code1', 'Dupont', 'Customer 1'),
-(2, 'code2', 'cust2', 'customer2'),
-(3, 'code3', 'cust3', 'customer3'),
-(4, 'code4', 'cust4', 'customer4'),
-(5, 'code5', 'cust5', 'customer5'),
-(6, 'code6', 'cust6', 'customer6'),
-(7, 'code7', 'cust7', 'customer7'),
-(8, 'code8', 'cust8', 'customer8'),
-(9, 'code9', 'cust9', 'customer9'),
-(10, 'code10', 'cust10', 'customer10');
+(1, 'code1', 'decormeille', 'Customer 1'),
+(2, 'code2', 'rondeau', 'customer2'),
+(3, 'code3', 'quioc', 'customer3'),
+(4, 'code4', 'ammar', 'customer4'),
+(5, 'code5', 'idasiak', 'customer5'),
+(6, 'code6', 'martins', 'customer6'),
+(7, 'code7', 'nga', 'customer7'),
+(8, 'code8', 'grave', 'customer8'),
+(9, 'code9', 'daca', 'customer9'),
+(10, 'code10', 'ducrocq', 'customer10');
 
 -- --------------------------------------------------------
 
@@ -133,16 +133,16 @@ CREATE TABLE `host` (
 --
 
 INSERT INTO `host` (`id`, `code`, `name`, `notes`) VALUES
-(1, 'codehost1', 'Dubois', 'notes host 1'),
-(2, 'codehost2', 'Rondeau', 'notes host 2'),
-(3, 'codehost3', 'Decormeille', 'notes host 3'),
-(4, 'codehost4', 'Quioc', 'notes host 4'),
-(5, 'codehost5', 'Martins', 'notes host 5'),
-(6, 'codehost6', 'Idasiak', 'notes host 6'),
-(7, 'codehost7', 'Ammar', 'notes host 7'),
-(8, 'codehost8', 'Daniel', 'notes host 8'),
-(9, 'codehost9', 'Test', 'notes host 9'),
-(10, 'codehost10', 'Host10', 'notes host 10');
+(1, 'codehost1', 'nodevo', 'notes host 1'),
+(2, 'codehost2', 'ovh', 'notes host 2'),
+(3, 'codehost3', 'goDaddy', 'notes host 3'),
+(4, 'codehost4', 'Ionos', 'notes host 4'),
+(5, 'codehost5', 'Hostinger', 'notes host 5'),
+(6, 'codehost6', 'planetHoster', 'notes host 6'),
+(7, 'codehost7', 'o2Switch', 'notes host 7'),
+(8, 'codehost8', 'infomaniak', 'notes host 8'),
+(9, 'codehost9', 'LWS', 'notes host 9'),
+(10, 'codehost10', 'Ex2', 'notes host 10');
 
 -- --------------------------------------------------------
 
@@ -167,16 +167,16 @@ CREATE TABLE `project` (
 --
 
 INSERT INTO `project` (`id`, `name`, `code`, `lastpass_folder`, `link_mock_ups`, `manage_server`, `notes`, `host_id`, `customer_id`) VALUES
-(1, 'project1', 'codeProject1', 'lpf1', 'lmu1', 0, 'notes project 1', 1, 1),
-(2, 'project2', 'codeProject2', 'lpf2', 'lmu2', 1, 'notes project 2', 2, 6),
-(3, 'project3', 'codeProject3', 'lpf3', 'lmu3', 1, 'notes project 3', 3, 3),
-(4, 'project4', 'codeProject4', 'lpf4', 'lmu4', 0, 'notes project 4', 4, 9),
-(5, 'project5', 'codeProject5', 'lpf5', 'lmu5', 0, 'notes project 5', 5, 5),
-(6, 'project6', 'codeProject6', 'lpf6', 'lmu6', 1, 'notes project 6', 7, 1),
-(7, 'project7', 'codeProject7', 'lpf7', 'lmu7', 0, 'notes project 7', 7, 7),
-(8, 'project8', 'codeProject8', 'lpf8', 'lmu8', 1, 'notes project 8', 6, 5),
-(9, 'project9', 'codeProject9', 'lpf9', 'lmu9', 0, 'notes project 9', 9, 9),
-(10, 'project10', 'codeProject10', 'lpf10', 'lmu10', 1, 'notes project 10', 7, 4);
+(1, 'Amazon', 'amazon_project', 'src/amazon', 'mockups/amazon', 0, 'notes project 1', 1, 1),
+(2, 'Youtube', 'youtube_project', 'src/youtube', 'mockups/youtube', 1, 'notes project 2', 2, 6),
+(3, 'Facebook', 'facebook_project', 'src/facebook', 'mockups/facebook', 1, 'notes project 3', 3, 3),
+(4, 'Instagram', 'instragram_project', 'src/instagram', 'mockups/instagram', 0, 'notes project 4', 4, 9),
+(5, 'portfolio', 'portoflio_project', 'src/portfolio', 'mockups/portfolio', 0, 'notes project 5', 5, 5),
+(6, 'ecoledirecte', 'ecoledirecte_project', 'src/ecoledirecte', 'mockups/ecoledirecte', 1, 'notes project 6', 7, 1),
+(7, 'leboncoin', 'leboncoin_project', 'src/leboncoin', 'mockups/leboncoin', 0, 'notes project 7', 7, 7),
+(8, 'netflix', 'netflix_project', 'src/netflix', 'mockups/netflix', 1, 'notes project 8', 6, 5),
+(9, 'dashlane', 'dahslane_project', 'src/dahslane', 'mockups/dashlane', 0, 'notes project 9', 9, 9),
+(10, 'twitter', 'twitter_project', 'src/twitter', 'mockups/twitter', 1, 'notes project 10', 7, 4);
 
 --
 -- Index pour les tables déchargées
