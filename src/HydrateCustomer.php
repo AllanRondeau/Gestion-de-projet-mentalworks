@@ -5,7 +5,7 @@ use App\VerificationForm;
 class HydrateCustomer
 {
 
-    private static Customer $validCustomer;
+    static protected Customer $validCustomer;
     public static function createCustomer(array $array): bool
     {
 
@@ -32,11 +32,11 @@ class HydrateCustomer
     
     public static function getAttributes(): void
     {
-        echo HydrateCustomer::$validCustomer->getName();
+        echo self::$validCustomer->getName();
     }
 
     public static function getCustomer(): Customer
     {
-        return HydrateCustomer::$validCustomer;
+        return self::$validCustomer;
     }
 }

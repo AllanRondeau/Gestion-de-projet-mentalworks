@@ -4,6 +4,20 @@ use FFI\Exception;
 use PDO;
 class CustomerType
 {
+    public static function selectCustomer(PDO $co): array
+    {
+        try
+        {
+            $reqSelect = $co->prepare("SELECT * FROM customer");
+            $reqSelect->execute();
+            return $reqSelect->fetchAll();
+            
+        }
+        catch(Exception $e)
+        {
+            echo "test";
+        }
+    }
     public static function insertCustomer(PDO $co, array $postData): string
     {
         try
