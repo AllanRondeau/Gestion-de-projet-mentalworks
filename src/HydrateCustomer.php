@@ -6,7 +6,7 @@ class HydrateCustomer
 {
 
     static protected Customer $validCustomer;
-    public static function createCustomer(array $array): bool
+    public static function createCustomer(Customer $customer, array $array): bool
     {
 
         //vérifier si l'objet peut etre null sinon modifier le constructeur
@@ -23,13 +23,23 @@ class HydrateCustomer
                 $check = true;
             }
         }
+
         if($check)
         {
+            if($customer != null)
+            {
+                $customer->setName($array["name"]);
+                $customer->setNotes($array["note"]);
+                return true;
+            }
             HydrateCustomer::$validCustomer = new Customer($array["code"], $array["name"], $array["note"]);
             return true;
         }
+        else
+        {
+            echo "La saisie n'est pas bonne";
+        }
     }
-    
     public static function getAttributes(): void
     {
         echo self::$validCustomer->getName();

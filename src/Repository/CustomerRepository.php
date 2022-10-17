@@ -1,5 +1,5 @@
 <?php
-namespace App\Form;
+namespace App\Repository;
 use FFI\Exception;
 use PDO;
 class CustomerType
@@ -25,6 +25,19 @@ class CustomerType
             $reqInsert = $co->prepare("INSERT INTO customer(code, name, note) VALUES(?, ?, ?)");
             $reqInsert->execute(array($postData["code"], $postData["name"], $postData["note"]));
             return "Insertion réussie";
+        }
+        catch(Exception $e)
+        {
+            return $e;
+        }
+    }
+    public static function updateCustomer(PDO $co, array $postData): string
+    {
+        try
+        {
+            $reqUpdate = $co->prepare("UPDATE customer SET name = ?, note = ?");
+            $reqUpdate->execute(array($postData["name"], $postData["note"]));
+            return "Modification réussie";
         }
         catch(Exception $e)
         {

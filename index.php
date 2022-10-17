@@ -8,10 +8,9 @@ use App\Entity\Project;
 use App\Entity\Environnement;
 use App\Entity\Contact;
 use App\HydrateCustomer;
-use App\Form\CustomerType;
+use App\Repository\CustomerRepository;
 
-$hy = new HydrateCustomer();
-
+// création d'une liste pour stocker les utilisateur de la bd
 $listCustomer = array();
 
 $conn = new ConnexionBdd("localhost", "gestion_projet", "phpmyadmin", "NewPassword123");
@@ -23,18 +22,36 @@ $projet1 = new Project("premier projet", "patate", "racine", "sbhdof", 1, "atten
 $environnement = new Environnement("environment1", "http://", "000.000.000", 22, "ssh", "localhost", 232, $projet1);
 $contact1 = new Contact("email@gmail.com", "06 36 98 65 74", "admin", $host1, $customer1);
 
+// lors du clic utilisateur pour sauvegarder un client
 if(isset($_POST["customerSaveBtn"]))
 {
-    if(HydrateCustomer::createCustomer(array("name"=>$_POST["nameNewCustomer"], "code"=>"code".$_POST["nameNewCustomer"], "note"=>$_POST["noteNewCustomer"])))
+    if($_POST["selectUserObject"] == null)
     {
-        $cust = HydrateCustomer::getCustomer();
-        $valid = CustomerType::insertCustomer($co, array("name"=>$_POST["nameNewCustomer"], "code"=>"code".$_POST["nameNewCustomer"], "note"=>$_POST["noteNewCustomer"]));
-        echo $valid;
+        if(HydrateCustomer::createCustomer(array("name"=>$_POST["nameNewCustomer"], "code"=>"code".$_POST["nameNewCustomer"], "note"=>$_POST["noteNewCustomer"])))
+        {
+            $cust = HydrateCustomer::getCustomer();
+            $valid = CustomerRepository::insertCustomer($co, array("name"=>$_POST["nameNewCustomer"], "code"=>"code".$_POST["nameNewCustomer"], "note"=>$_POST["noteNewCustomer"]));
+            echo $valid;
+        }
+        else
+        {
+            $errorInput = "La saisie n'est pas bonne !";
+            echo $errorInput;
+        }
     }
     else
     {
-        $errorInput = "La saisie n'est pas bonne !";
-        echo $errorInput;
+        if(HydrateCustomer::createCustomer($listCustomer[$_POST["selectUserObject"]], array("name"=>$_POST["nameNewCustomer"], "code"=>"code".$_POST["nameNewCustomer"], "note"=>$_POST["noteNewCustomer"])))
+        {
+            $cust = HydrateCustomer::getCustomer();
+            $valid = CustomerRepository::insertCustomer($co, array("name"=>$_POST["nameNewCustomer"], "code"=>"code".$_POST["nameNewCustomer"], "note"=>$_POST["noteNewCustomer"]));
+            echo $valid;
+        }
+        else
+        {
+            $errorInput = "La saisie n'est pas bonne !";
+            echo $errorInput;
+        }
     }
 }
 
@@ -84,7 +101,7 @@ foreach($allCustomer as $createCustomer)
         <article>
             <form method="post" id="newCustomerForm" action="">
                 <?php
-                    echo "<select>";
+                    echo "<select name='selectUserObject'>";
                         echo "<option>New User</option>";
                     foreach($listCustomer as $key => $customer)
                     {
