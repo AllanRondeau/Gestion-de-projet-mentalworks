@@ -2,7 +2,7 @@
 namespace App\Repository;
 use FFI\Exception;
 use PDO;
-class CustomerType
+class CUSTOMER_TYPE
 {
     public static function selectCustomer(PDO $co): array
     {
