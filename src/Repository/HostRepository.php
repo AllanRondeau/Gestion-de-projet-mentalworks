@@ -4,12 +4,12 @@ use FFI\Exception;
 use PDO;
 class CustomerRepository
 {
-    // fonction pour la récupération des customers
-    public static function selectCustomer(PDO $co): array
+    // fonction pour la récupération des host
+    public static function selectHost(PDO $co): array
     {
         try
         {
-            $reqSelect = $co->prepare("SELECT * FROM customer");
+            $reqSelect = $co->prepare("SELECT * FROM host");
             $reqSelect->execute();
             return $reqSelect->fetchAll();
             
@@ -19,13 +19,13 @@ class CustomerRepository
             echo $e;
         }
     }
-    // fonction pour l'insertion d'un customer
-    public static function insertCustomer(PDO $co, array $postData): string
+    // fonction pour l'insertion d'un host
+    public static function insertHost(PDO $co, array $postData): string
     {
         try
         {
-            $reqInsert = $co->prepare("INSERT INTO customer(code, name, note) VALUES(?, ?, ?)");
-            $reqInsert->execute(array($postData["code"], $postData["name"], $postData["note"]));
+            $reqInsert = $co->prepare("INSERT INTO host(code, name, notes) VALUES(?, ?, ?)");
+            $reqInsert->execute(array($postData["code"], $postData["name"], $postData["notes"]));
             return "Insertion réussie";
         }
         catch(Exception $e)
@@ -33,13 +33,13 @@ class CustomerRepository
             return $e;
         }
     }
-    // fonction pour la modification d'un customer
-    public static function updateCustomer(PDO $co, array $postData): string
+    // fonction pour la modification d'un host
+    public static function updateHost(PDO $co, array $postData): string
     {
         try
         {
-            $reqUpdate = $co->prepare("UPDATE customer SET name = ?, note = ? WHERE id = ?");
-            $reqUpdate->execute(array($postData["name"], $postData["note"], $postData["id"]));
+            $reqUpdate = $co->prepare("UPDATE host SET code = ?, name = ?, note = ? WHERE id = ?");
+            $reqUpdate->execute(array($postData["name"], $postData["name"], $postData["notes"], $postData["id"]));
             return "Modification réussie";
         }
         catch(Exception $e)
@@ -47,13 +47,13 @@ class CustomerRepository
             return $e;
         }
     }
-    // fonction pour la suppression d'un customer
-    public static function deleteCustomer(PDO $co, array $postData): string
+    // fonction pour la suppression d'un host
+    public static function deleteHost(PDO $co, array $postData): string
     {
         try
         {
-            $reqUpdate = $co->prepare("UPDATE customer SET name = ?, note = ? WHERE id = ?");
-            $reqUpdate->execute(array($postData["name"], $postData["note"], $postData["id"]));
+            $reqUpdate = $co->prepare("DELETE FROM host WHERE id = ?");
+            $reqUpdate->execute(array($postData["id"]));
             return "Modification réussie";
         }
         catch(Exception $e)
