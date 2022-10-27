@@ -2,5 +2,7 @@ window.onload = () => {
     landing();
     navbarSectionChoose();
     landingCustomerForm();
-    choosedCustomerSectionForm()
+    choosedCustomerSectionForm();
+    landingHostForm();
+    choosedHostSectionForm();
 }
