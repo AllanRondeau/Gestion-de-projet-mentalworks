@@ -52,7 +52,7 @@ class CustomerRepository
     {
         try
         {
-            $reqUpdate = $co->prepare("DELETE FROM customer WHERE id = ?");
+            $reqUpdate = $co->prepare("UPDATE customer SET name = ?, note = ? WHERE id = ?");
             $reqUpdate->execute(array($postData["name"], $postData["note"], $postData["id"]));
             return "Modification réussie";
         }
