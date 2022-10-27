@@ -13,8 +13,7 @@ use App\Repository\CustomerRepository;
 // création d'une liste pour stocker les utilisateur de la bd
 $listCustomer = array();
 
-$conn = new ConnexionBdd("localhost", "gestion_projet", "phpmyadmin", "NewPassword123");
-$co = $conn->Connexion();
+$co = ConnexionBdd::Connexion();
 
 $host1 = new Host("test", "salut", "upload");
 $customer1 = new Customer("sbhdf", "sdbkf", "skjdbf");
@@ -56,7 +55,7 @@ if(isset($_POST["customerSaveBtn"]))
 }
 
 // récupération de tout les customer et création d'un objet customer et ajout dans une liste des objets
-$allCustomer = CustomerType::selectCustomer($co);
+$allCustomer = CustomerRepository::selectCustomer($co);
 foreach($allCustomer as $createCustomer)
 {
     HydrateCustomer::createCustomer(array("code"=>$createCustomer["code"], "name"=>$createCustomer["name"], "note"=>$createCustomer["note"]));

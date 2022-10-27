@@ -2,8 +2,9 @@
 namespace App\Repository;
 use FFI\Exception;
 use PDO;
-class CUSTOMER_TYPE
+class CustomerRepository
 {
+    // fonction pour la récupération des customers
     public static function selectCustomer(PDO $co): array
     {
         try
@@ -18,6 +19,7 @@ class CUSTOMER_TYPE
             echo "test";
         }
     }
+    // fonction pour l'insertion d'un customer
     public static function insertCustomer(PDO $co, array $postData): string
     {
         try
@@ -31,12 +33,27 @@ class CUSTOMER_TYPE
             return $e;
         }
     }
+    // fonction pour la modification d'un customer
     public static function updateCustomer(PDO $co, array $postData): string
     {
         try
         {
-            $reqUpdate = $co->prepare("UPDATE customer SET name = ?, note = ?");
-            $reqUpdate->execute(array($postData["name"], $postData["note"]));
+            $reqUpdate = $co->prepare("UPDATE customer SET name = ?, note = ? WHERE id = ?");
+            $reqUpdate->execute(array($postData["name"], $postData["note"], $postData["id"]));
+            return "Modification réussie";
+        }
+        catch(Exception $e)
+        {
+            return $e;
+        }
+    }
+    // fonction pour la suppression d'un customer
+    public static function deleteCustomer(PDO $co, array $postData): string
+    {
+        try
+        {
+            $reqUpdate = $co->prepare("UPDATE customer SET name = ?, note = ? WHERE id = ?");
+            $reqUpdate->execute(array($postData["name"], $postData["note"], $postData["id"]));
             return "Modification réussie";
         }
         catch(Exception $e)

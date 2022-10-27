@@ -1,10 +1,10 @@
 <?php
 class ConnexionBdd
 {
-    private string $serveur;
-    private string $nomBdd;
-    private string $utilisateur;
-    private string $mdp;
+    static string $serveur = "localhost";
+    static string $nomBdd = "gestion_projet";
+    static string $utilisateur = "root";
+    static string $mdp = "";
 
     public function __construct(string $serveur, string $nomBdd, string $utilisateur, string $mdp)
     {
@@ -37,7 +37,7 @@ class ConnexionBdd
         return $this->mdp;
     }
     public function setMdp(string $mdp):void
-    {App\Model\ConnexionBdd;
+    {
         $this->mdp = $mdp;
     }
     //serveur
@@ -50,14 +50,13 @@ class ConnexionBdd
         $this->serveur = $serveur;
     }
 
-    public function Connexion(): PDO
+    public static function Connexion(): PDO
     {
         try{
             // chaine de connexion avec API PDO
-            $co = new PDO('mysql:host='.$this->serveur.';dbname='.$this->nomBdd.';user='.$this->utilisateur.';password='.$this->mdp);
+            $co = new PDO('mysql:host='.ConnexionBdd::$serveur.';dbname='.ConnexionBdd::$nomBdd.';user='.ConnexionBdd::$utilisateur.';password='.ConnexionBdd::$mdp);
             //On définit le mode d'erreur de PDO sur Exception
             $co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo 'Connexion réussie';
         }		
         // En cas de problème dans la tentative connexion on termine le script php et on affichera le message d'erreur
         catch(PDOException $e){
