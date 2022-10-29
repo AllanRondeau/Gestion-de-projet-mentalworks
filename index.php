@@ -50,6 +50,7 @@ foreach ($allCustomer as $createCustomer) {
     HydrateCustomer::createCustomer(array("code" => $createCustomer["code"], "name" => $createCustomer["name"], "note" => $createCustomer["note"]));
     array_push($listCustomer, HydrateCustomer::getCustomer());
 }
+
 ?>
 
 <!doctype html>
@@ -122,16 +123,24 @@ foreach ($allCustomer as $createCustomer) {
       <button type="button" id="updateContactBtn">Modifier le client</button>
       <article>
         <form method="post" id="newCustomerForm" action="">
-            <?php
-            echo "<select name='selectUserObject'>";
-            echo "<option>New User</option>";
-            foreach ($listCustomer as $key => $customer) {
-                echo "
-                            <option value=" . $key . ">" . $customer->getName() . "</option>
-                        ";
-            }
-            echo "</select>";
-            ?>
+          <select name='selectUserObject'>
+            <option>New User</option>
+              <?php
+//              echo "<script type='text/javascript'>";
+//              foreach ($listCustomer as $key => $customer) {
+//                  echo "listCustomer[$key] = '$customer';";
+//              }
+//              echo "console.info(listCustomer);";
+//              echo "let selectCustomer = document.querySelector('#selectUserObject');";
+//              echo "for(i = 0; i<listCustomer.length; i++){
+//                  let opt = listCustomer[i];
+//                  let el = document.createElement('option');
+//                  el.textContent = opt;
+//                  el.value = opt;
+//                  selectCustomer.appendChild(el)";
+//              echo "</script>";
+              ?>
+          </select>
           <fieldset>
             <label for="nameNewCustomer">Nom</label>
             <input type="text" name="nameNewCustomer">
@@ -166,21 +175,14 @@ foreach ($allCustomer as $createCustomer) {
       <button type="button" id="updateContactHostBtn">Modifier le client</button>
       <article>
         <form method="post" id="newHostForm" action="">
-<!--            --><?php
-//            echo "<select name='selectUserObject'>";
-//            echo "<option>New User</option>";
-//            foreach ($listCustomer as $key => $customer) {
-//                echo "
-//                            <option value=" . $key . ">" . $customer->getName() . "</option>
-//                        ";
-//            }
-//            echo "</select>";
-//            ?>
+          <select name='selectUserObject'>
+            <option>New User</option>
+          </select>
           <fieldset>
             <label for="nameNewHost">Nom</label>
             <input type="text" name="nameNewHost">
             <label for="codeNewHost">Code interne</label>
-            <input type="text" name="codeNewHost placeholder="Champ généré automatiquement" disable>
+            <input type="text" name="codeNewHost placeholder=" Champ généré automatiquement" disable>
             <label for="noteNewHost">Notes / Remarques</label>
             <input type="text" name="noteNewHost">
           </fieldset>
