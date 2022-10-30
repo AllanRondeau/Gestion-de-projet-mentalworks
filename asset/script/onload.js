@@ -5,4 +5,5 @@ window.onload = () => {
     choosedCustomerSectionForm();
     landingHostForm();
     choosedHostSectionForm();
+    updtCustomer();
 }

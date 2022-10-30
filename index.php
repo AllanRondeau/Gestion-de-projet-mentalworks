@@ -123,22 +123,12 @@ foreach ($allCustomer as $createCustomer) {
       <button type="button" id="updateContactBtn">Modifier le client</button>
       <article>
         <form method="post" id="newCustomerForm" action="">
-          <select name='selectUserObject'>
+          <select name='selectUserObject' onchange="updtCustomer()">
             <option>New User</option>
               <?php
-//              echo "<script type='text/javascript'>";
-//              foreach ($listCustomer as $key => $customer) {
-//                  echo "listCustomer[$key] = '$customer';";
-//              }
-//              echo "console.info(listCustomer);";
-//              echo "let selectCustomer = document.querySelector('#selectUserObject');";
-//              echo "for(i = 0; i<listCustomer.length; i++){
-//                  let opt = listCustomer[i];
-//                  let el = document.createElement('option');
-//                  el.textContent = opt;
-//                  el.value = opt;
-//                  selectCustomer.appendChild(el)";
-//              echo "</script>";
+              foreach ($listCustomer as $key => $customer) {
+                  echo "<option value='". $key. "'>".$customer->getName()."</option>";
+              }
               ?>
           </select>
           <fieldset>
@@ -211,6 +201,7 @@ foreach ($allCustomer as $createCustomer) {
 <script src="asset/script/navbar.js"></script>
 <script src="asset/script/formCustomer.js"></script>
 <script src="asset/script/formHost.js"></script>
+<script src="asset/script/updateForm.js"></script>
 <script src="asset/script/onload.js"></script>
 </html>
 
