@@ -1,6 +1,7 @@
 <?php
 require "./src/autoloader.php";
 require "./Connexion/ConnexionBdd.php";
+require_once "./selectCustomer.php";
 
 use App\Entity\Host;
 use App\Entity\Customer;
@@ -10,10 +11,9 @@ use App\Entity\Contact;
 use App\HydrateCustomer;
 use App\Repository\CustomerRepository;
 
-// création d'une liste pour stocker les utilisateur de la bd
-$listCustomer = array();
-
 $co = ConnexionBdd::Connexion();
+$allCustomer = CustomerRepository::selectCustomer($co);
+test($allCustomer);
 
 $host1 = new Host("test", "salut", "upload");
 $customer1 = new Customer("sbhdf", "sdbkf", "skjdbf");
@@ -42,13 +42,6 @@ if (isset($_POST["customerSaveBtn"])) {
             echo $errorInput;
         }
     }
-}
-
-// récupération de tout les customer et création d'un objet customer et ajout dans une liste des objets
-$allCustomer = CustomerRepository::selectCustomer($co);
-foreach ($allCustomer as $createCustomer) {
-    HydrateCustomer::createCustomer(array("code" => $createCustomer["code"], "name" => $createCustomer["name"], "note" => $createCustomer["note"]));
-    array_push($listCustomer, HydrateCustomer::getCustomer());
 }
 
 ?>

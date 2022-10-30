@@ -2,7 +2,7 @@
 namespace App\Repository;
 use FFI\Exception;
 use PDO;
-class CustomerRepository
+class HostRepository
 {
     // fonction pour la récupération des host
     public static function selectHost(PDO $co): array
