@@ -13,7 +13,7 @@ use App\Repository\CustomerRepository;
 
 $co = ConnexionBdd::Connexion();
 $allCustomer = CustomerRepository::selectCustomer($co);
-test($allCustomer);
+getAllCustomer($allCustomer);
 
 $host1 = new Host("test", "salut", "upload");
 $customer1 = new Customer("sbhdf", "sdbkf", "skjdbf");
