@@ -1,5 +1,5 @@
 <?php
-
+header('Content-Type: application/json; charset=utf-8');
 require "./src/autoloader.php";
 require "./Connexion/ConnexionBdd.php";
 
@@ -15,15 +15,20 @@ use App\Repository\CustomerRepository;
 $co = ConnexionBdd::Connexion();
 $allCustomer = CustomerRepository::selectCustomer($co);
 $listCustomer= array();
+echo json_encode(getAllCustomer($allCustomer));
     function getAllCustomer(array $allCustomer): array
     {
         foreach ($allCustomer as $createCustomer) {
             HydrateCustomer::createCustomer(array("code" => $createCustomer["code"], "name" => $createCustomer["name"], "note" => $createCustomer["note"]));
-            $listCustomer[] = HydrateCustomer::getCustomer();
+            $listCustomer[] = (object)[
+                "code" => HydrateCustomer::getCustomer()->getCode(),
+                "name" => HydrateCustomer::getCustomer()->getName(),
+                "notes" => HydrateCustomer::getCustomer()->getNotes(),
+                ];
         }
         return $listCustomer;
     }
-    getAllCustomer($allCustomer);
+
 
 
 if (isset($_POST["customerSaveBtn"])) {

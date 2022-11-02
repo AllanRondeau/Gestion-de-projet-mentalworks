@@ -79,13 +79,8 @@
       <button type="button" id="updateContactBtn">Modifier le client</button>
       <article>
         <form method="post" id="newCustomerForm" action="">
-          <select name='selectUserObject' onchange="updtCustomer()">
+          <select id="selectUserObject" onchange="updtCustomer()">
             <option>New User</option>
-<!--              --><?php
-//              foreach ($listCustomer as $key => $customer) {
-//                  echo "<option value='". $key. "'>".$customer->getName()."</option>";
-//              }
-//              ?>
           </select>
           <fieldset>
             <label for="nameNewCustomer">Nom</label>
@@ -158,6 +153,7 @@
 <script src="asset/script/formCustomer.js"></script>
 <script src="asset/script/formHost.js"></script>
 <script src="asset/script/updateForm.js"></script>
+<script src="asset/script/createCustomerSelect.js"></script>
 <script src="asset/script/onload.js"></script>
 </html>
 
