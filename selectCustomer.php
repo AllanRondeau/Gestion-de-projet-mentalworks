@@ -21,8 +21,8 @@ echo json_encode(getAllCustomer($allCustomer));
         foreach ($allCustomer as $createCustomer) {
             HydrateCustomer::createCustomer(array("code" => $createCustomer["code"], "name" => $createCustomer["name"], "note" => $createCustomer["note"]));
             $listCustomer[] = (object)[
-                "code" => HydrateCustomer::getCustomer()->getCode(),
                 "name" => HydrateCustomer::getCustomer()->getName(),
+                "code" => HydrateCustomer::getCustomer()->getCode(),
                 "notes" => HydrateCustomer::getCustomer()->getNotes(),
                 ];
         }

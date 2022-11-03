@@ -79,8 +79,8 @@
       <button type="button" id="updateContactBtn">Modifier le client</button>
       <article>
         <form method="post" id="newCustomerForm" action="">
-          <select id="selectUserObject" onchange="updtCustomer()">
-            <option>New User</option>
+          <select id="selectUserObject">
+            <option value="none">New User</option>
           </select>
           <fieldset>
             <label for="nameNewCustomer">Nom</label>
