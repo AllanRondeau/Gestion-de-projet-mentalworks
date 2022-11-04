@@ -86,12 +86,12 @@
             <label for="nameNewCustomer">Nom</label>
             <input type="text" name="nameNewCustomer">
             <label for="codeNewCustomer">Code interne</label>
-            <input type="text" name="codeNewCustomer" placeholder="Champ généré automatiquement" disable>
+            <input type="text" name="codeNewCustomer" placeholder="Champ généré automatiquement" disabled>
             <label for="noteNewCustomer">Notes / Remarques</label>
             <input type="text" name="noteNewCustomer">
           </fieldset>
           <button type="submit" name="customerCancelBtn" class="cancelBtn">Annuler</button>
-          <button type="submit" name="customerSaveBtn" class="saveBtn">Sauvegarder</button>
+          <button type="submit" id="customerSaveBtn" name="customerInsertBtn" class="saveBtn">Sauvegarder</button>
         </form>
         <form method="post" id="updateContactForm" action="">
           <fieldset>
@@ -116,19 +116,19 @@
       <button type="button" id="updateContactHostBtn">Modifier le client</button>
       <article>
         <form method="post" id="newHostForm" action="">
-          <select name='selectUserObject'>
+          <select id='selectHostObject'>
             <option>New User</option>
           </select>
           <fieldset>
             <label for="nameNewHost">Nom</label>
             <input type="text" name="nameNewHost">
             <label for="codeNewHost">Code interne</label>
-            <input type="text" name="codeNewHost placeholder=" Champ généré automatiquement" disable>
+            <input type="text" name="codeNewHost" placeholder=" Champ généré automatiquement" disabled>
             <label for="noteNewHost">Notes / Remarques</label>
             <input type="text" name="noteNewHost">
           </fieldset>
           <button type="submit" name="hostCancelBtn" class="cancelBtn">Annuler</button>
-          <button type="submit" name="hostSaveBtn" class="saveBtn">Sauvegarder</button>
+          <button type="submit" id="hostSaveBtn"  class="saveBtn">Sauvegarder</button>
         </form>
         <form method="post" id="updateContactFormHost" action="">
           <fieldset>
