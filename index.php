@@ -40,17 +40,17 @@
       <header>
         <h3>Projets</h3>
       </header>
-      <article>
+      <article id="projectList">
         <form>
           <fieldset>
             <div id="projectsLabel">
-              <label for="projectName">Nom</label>
-              <label for="projectCustomer">Client</label>
-              <label for="projectHost" id="projectHost">Hébergeur</label>
+              <label for="projectNameSearch">Nom</label>
+              <label for="projectCustomerSearch">Client</label>
+              <label for="projectHostSearch" id="projectHost">Hébergeur</label>
             </div>
-            <input type="text" name="projectName">
-            <input type="text" name="projectCustomer">
-            <input type="text" name="projectHost">
+            <input type="text" name="projectNameSearch">
+            <input type="text" name="projectCustomerSearch">
+            <input type="text" name="projectHostSearch">
           </fieldset>
         </form>
         <div id="projectsSorting">
@@ -69,6 +69,26 @@
           <button type="button"> ></button>
           <button type="submit" id="projectsButtonAdd">Ajouter</button>
         </div>
+      </article>
+      <article class="hook" id="projectForm">
+        <button id="backToProjectListBtn"><i class="fa-solid fa-arrow-left"></i>Retour à la liste des projets</button>
+        <form>
+          <label for="projectName">Nom</label>
+          <input name="projectName">
+          <label for="projectCode">Code interne</label>
+          <input name="projectCode">
+          <label for="projectCustomer">Client</label>
+          <select name="projectCustomer" id="projectCustomer"></select>
+          <label for="projectHost">Hébergeur</label>
+          <select name="projectHost" id="projectHost"></select>
+          <label for="projectNotes">Notes / remarques</label>
+          <input name="projectNotes">
+          <label for="projectLastpass">Dossier LastPass</label>
+          <input name="projectLastpass">
+          <label for="projectMockupLink">Lien Maquettes</label>
+          <input name="projectMockupLink">
+          <button type="submit" id="ProjectSaveBtn" name="projectInsertBtn" class="saveBtn">Sauvegarder</button>
+        </form>
       </article>
     </section>
     <section id="customer">
@@ -153,7 +173,8 @@
 <script src="asset/script/formCustomer.js"></script>
 <script src="asset/script/formHost.js"></script>
 <script src="asset/script/updateForm.js"></script>
-<script src="asset/script/createCustomerSelect.js"></script>
+<script src="asset/script/AsyncDataFetch.js"></script>
+<script src="asset/script/formProject.js"></script>
 <script src="asset/script/onload.js"></script>
 </html>
 

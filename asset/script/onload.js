@@ -5,5 +5,7 @@ window.onload = () => {
     choosedCustomerSectionForm();
     landingHostForm();
     choosedHostSectionForm();
+    hookProjectList();
+    backToProjectList();
     updtCustomer();
 }

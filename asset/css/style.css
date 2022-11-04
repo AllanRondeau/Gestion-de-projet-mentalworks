@@ -232,7 +232,50 @@ article {
     height: 3vh;
 }
 
+#backToProjectListBtn{
+    background-color: white;
+    border: none;
+    border-bottom: 1px solid #cb7857;
+    font-size: calc(20*var(--res));
+    cursor: pointer;
+    margin: 2vh 0 3vh 1vw;
+    transition: all .35s;
+}
+#backToProjectListBtn:hover{
+    font-size: calc(23*var(--res));
+    border-bottom: 2px solid #cb7857;
+}
 
+#projectForm form{
+    display: flex;
+    width: 65vw;
+    flex-direction: column;
+    flex-basis: 15vh;
+    flex-wrap: wrap;
+    height: 33vh;
+    margin-left: 4vw;
+}
+
+#projectForm form input, #projectForm form select{
+    width: 20vw;
+}
+
+
+#projectForm form button{
+    width: 11vw;
+    height: 4vh;
+    border: none;
+    margin-top: 4vh;
+    margin-left: 10vw;
+    cursor: pointer;
+    font-size: calc(17*var(--res));
+}
+
+#projectForm form button:hover{
+    width: 12vw;
+    height: 4.5vh;
+    font-size: calc(19*var(--res))
+}
 /* HOST SECTION */
 
 
