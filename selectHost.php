@@ -3,8 +3,6 @@ header('Content-Type: application/json; charset=utf-8');
 require "./src/autoloader.php";
 require "./Connexion/ConnexionBdd.php";
 
-use App\Entity\Host;
-use App\Entity\Contact;
 use App\HydrateHost;
 use App\Repository\HostRepository;
 
