@@ -5,6 +5,7 @@ const selectHostUrl = 'selectHost.php';
 const dropdownHost = document.querySelector('#selectHostObject');
 const inputupdtHost = document.querySelectorAll('#newHostForm input');
 
+const selectProjectURL = 'selectProject.php';
 const btnSubmitCustomer = document.querySelector('#customerSaveBtn');
 const btnSubmitHost = document.querySelector('#HostSaveBtn');
 
@@ -28,6 +29,10 @@ promiseCustomer.then(value => updtCustomerInForm(value));
 const promiseHost = asyncSelect(selectHostUrl);
 promiseHost.then(value => implementSelectWithHost(value));
 promiseHost.then(value => updtHostInForm(value));
+
+const promiseProject = asyncSelect(selectProjectURL);
+
+
 
 function implementSelectWithCustomer(arrayCustomer) {
     for (let i = 0; i < arrayCustomer.length; i++) {
