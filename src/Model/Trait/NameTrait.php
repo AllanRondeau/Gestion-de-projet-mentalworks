@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Model\Trait;
 
 trait NameTrait
@@ -10,5 +11,5 @@ trait NameTrait
     public function setName(string $name): void
     {
         $this->name = $name;
-    } 
+    }
 }

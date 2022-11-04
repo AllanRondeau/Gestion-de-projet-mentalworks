@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Model\Interface;
+
 interface CommonPropertiesInterface
 {
     public function getId(): int;
@@ -10,5 +12,3 @@ interface CommonPropertiesInterface
     public function getNotes(): ?string;
     public function setNotes(string $notes): void;
 }
-
-

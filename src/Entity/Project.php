@@ -1,25 +1,32 @@
 <?php
+
 namespace App\Entity;
+
 use App\Model\Interface\CommonPropertiesInterface;
 use App\Model\Trait\IdTrait;
 use App\Model\Trait\NameTrait;
 use App\Model\Trait\CodeTrait;
 use App\Model\Trait\NotesTrait;
+
 class Project implements CommonPropertiesInterface
 {
-    use IdTrait, NameTrait, CodeTrait, NotesTrait;
+    use IdTrait;
+    use NameTrait;
+    use CodeTrait;
+    use NotesTrait;
     private int $id;
-    public function __construct
-        (
-            private string $name, 
-            private string $code, 
-            private string $lastpass_folder, 
-            private string $link_mock_ups, 
-            private int $manage_server,
-            private string $notes,
-            private ?host $host_id,
-            private ?Customer $customer_id,
-        ){$this->id = 0;}
+    public function __construct(
+        private string $name,
+        private string $code,
+        private string $lastpass_folder,
+        private string $link_mock_ups,
+        private int $manage_server,
+        private string $notes,
+        private ?host $host_id,
+        private ?Customer $customer_id,
+    ) {
+        $this->id = 0;
+    }
 
     public function getLastpassFolder(): ?string
     {
@@ -33,7 +40,7 @@ class Project implements CommonPropertiesInterface
     {
         return $this->manage_server;
     }
-    
+
     public function getHost(): ?host
     {
         return $this->host_id;

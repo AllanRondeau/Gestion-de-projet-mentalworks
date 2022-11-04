@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Model\Interface;
+
 interface EnvironnementInterface
 {
     public function getId(): int;

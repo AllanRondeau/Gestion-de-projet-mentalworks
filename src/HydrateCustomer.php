@@ -1,36 +1,30 @@
 <?php
+
 namespace App;
+
 use App\Entity\Customer;
 use App\VerificationForm;
+
 class HydrateCustomer
 {
-
     public static Customer $validCustomer;
     public static function createCustomer(array $array): bool
     {
-
         //vérifier si l'objet peut etre null sinon modifier le constructeur
-        foreach($array as $valueInput)
-        {
-            // si pas valide alors return le champ qui n'est pas bon 
+        foreach ($array as $valueInput) {
+            // si pas valide alors return le champ qui n'est pas bon
             $test = VerificationForm::checkInput($valueInput);
-            if(!$test)
-            {
+            if (!$test) {
                 return false;
-            }
-            else
-            {
+            } else {
                 $check = true;
             }
         }
 
-        if($check)
-        {
+        if ($check) {
             HydrateCustomer::$validCustomer = new Customer($array["code"], $array["name"], $array["note"]);
             return true;
-        }
-        else
-        {
+        } else {
             echo "La saisie n'est pas bonne";
         }
     }
