@@ -2,13 +2,13 @@
 
 namespace App;
 
-use App\Entity\Customer;
+use App\Entity\Host;
 use App\VerificationForm;
 
-class HydrateCustomer
+class HydrateHost
 {
-    public static Customer $validCustomer;
-    public static function createCustomer(array $array): bool
+    public static Host $validHost;
+    public static function createHost(array $array): bool
     {
         //vérifier si l'objet peut etre null sinon modifier le constructeur
         foreach ($array as $valueInput) {
@@ -22,7 +22,7 @@ class HydrateCustomer
         }
 
         if ($check) {
-            HydrateCustomer::$validCustomer = new Customer($array["code"], $array["name"], $array["note"]);
+            HydrateHost::$validHost = new Host($array["code"], $array["name"], $array["notes"]);
             return true;
         } else {
             echo "La saisie n'est pas bonne";
@@ -30,11 +30,11 @@ class HydrateCustomer
     }
     public static function getAttributes(): void
     {
-        echo self::$validCustomer->getName();
+        echo self::$validHost->getName();
     }
 
-    public static function getCustomer()
+    public static function getHost()
     {
-        return self::$validCustomer;
+        return self::$validHost;
     }
 }

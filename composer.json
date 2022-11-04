@@ -1,0 +1,17 @@
+{
+    "name": "quioc/gestion-de-projet-mentalworks",
+    "autoload": {
+        "psr-4": {
+            "Quioc\\GestionDeProjetMentalworks\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ewan Quioc",
+            "email": "quioc.ewan@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.13"
+    }
+}

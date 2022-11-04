@@ -1,14 +1,18 @@
 <?php
+
 namespace App\Entity;
+
 use App\Model\Interface\EnvironnementInterface;
 use App\Model\Trait\IdTrait;
 use App\Model\Trait\NameTrait;
+
 class Environnement implements EnvironnementInterface
 {
-    use IdTrait, NameTrait;
+    use IdTrait;
+    use NameTrait;
     private int $id;
     public function __construct(
-        private string $name, 
+        private string $name,
         private string $link,
         private string $ip,
         private int    $sshPort,
@@ -16,7 +20,9 @@ class Environnement implements EnvironnementInterface
         private string $phpMyAdminLink,
         private int    $ipRestriction,
         private ?Project $project
-    ){$this->id = 0;}
+    ) {
+        $this->id = 0;
+    }
 
     public function getLink(): string
     {
@@ -75,5 +81,4 @@ class Environnement implements EnvironnementInterface
     {
         $this->project = $project;
     }
-
 }

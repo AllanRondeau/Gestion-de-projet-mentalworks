@@ -1,10 +1,11 @@
 <?php
+
 class ConnexionBdd
 {
-    static string $serveur = "localhost";
-    static string $nomBdd = "gestion_projet";
-    static string $utilisateur = "root";
-    static string $mdp = "";
+    public static string $serveur = "localhost";
+    public static string $nomBdd = "gestion_projet";
+    public static string $utilisateur = "root";
+    public static string $mdp = "";
 
     public function __construct(string $serveur, string $nomBdd, string $utilisateur, string $mdp)
     {
@@ -18,7 +19,7 @@ class ConnexionBdd
     {
         return $this->nomBdd;
     }
-    public function setNomBdd(string $nomBdd):void
+    public function setNomBdd(string $nomBdd): void
     {
         $this->nomBdd = $nomBdd;
     }
@@ -27,7 +28,7 @@ class ConnexionBdd
     {
         return $this->utilisateur;
     }
-    public function setUtilisateur(string $utilisateur):void
+    public function setUtilisateur(string $utilisateur): void
     {
         $this->utilisateur = $utilisateur;
     }
@@ -36,7 +37,7 @@ class ConnexionBdd
     {
         return $this->mdp;
     }
-    public function setMdp(string $mdp):void
+    public function setMdp(string $mdp): void
     {
         $this->mdp = $mdp;
     }
@@ -45,24 +46,23 @@ class ConnexionBdd
     {
         return $this->serveur;
     }
-    public function setServeur(string $serveur):void
+    public function setServeur(string $serveur): void
     {
         $this->serveur = $serveur;
     }
 
     public static function Connexion(): PDO
     {
-        try{
+        try {
             // chaine de connexion avec API PDO
             $co = new PDO('mysql:host='.ConnexionBdd::$serveur.';dbname='.ConnexionBdd::$nomBdd.';user='.ConnexionBdd::$utilisateur.';password='.ConnexionBdd::$mdp);
             //On définit le mode d'erreur de PDO sur Exception
             $co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        }		
+        }
         // En cas de problème dans la tentative connexion on termine le script php et on affichera le message d'erreur
-        catch(PDOException $e){
+        catch(PDOException $e) {
             die('Erreur : ' . $e->getMessage());
         }
         return $co;
     }
 }
-?>

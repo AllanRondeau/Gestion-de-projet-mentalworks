@@ -2,13 +2,13 @@
 
 namespace App;
 
-use App\Entity\Customer;
+use App\Entity\Project;
 use App\VerificationForm;
 
-class HydrateCustomer
+class HydrateProject
 {
-    public static Customer $validCustomer;
-    public static function createCustomer(array $array): bool
+    public static Project $validProject;
+    public static function createProject(array $array): bool
     {
         //vérifier si l'objet peut etre null sinon modifier le constructeur
         foreach ($array as $valueInput) {
@@ -22,7 +22,17 @@ class HydrateCustomer
         }
 
         if ($check) {
-            HydrateCustomer::$validCustomer = new Customer($array["code"], $array["name"], $array["note"]);
+            HydrateProject::$validHost = new Project(
+                $array["name"],
+                $array["code"],
+                $array["lastpass_folder"],
+                $array["link_mocks_up"],
+                $array["manage_server"],
+                $array["notes"],
+                $array["host_id"],
+                $array["customer_id"]
+            );
+
             return true;
         } else {
             echo "La saisie n'est pas bonne";
@@ -30,11 +40,11 @@ class HydrateCustomer
     }
     public static function getAttributes(): void
     {
-        echo self::$validCustomer->getName();
+        echo self::$validProject->getName();
     }
 
-    public static function getCustomer()
+    public static function getProject()
     {
-        return self::$validCustomer;
+        return self::$validProject;
     }
 }
