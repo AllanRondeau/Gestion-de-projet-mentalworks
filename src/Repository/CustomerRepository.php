@@ -24,7 +24,7 @@ class CustomerRepository
         try {
             $reqInsert = $co->prepare("INSERT INTO customer(code, name, note) VALUES(?, ?, ?)");
             $reqInsert->execute(array($postData["code"], $postData["name"], $postData["note"]));
-            return "Insertion réussie";
+            return "insert reussi";
         } catch(Exception $e) {
             return $e;
         }
@@ -33,9 +33,9 @@ class CustomerRepository
     public static function updateCustomer(PDO $co, array $postData): string
     {
         try {
-            $reqUpdate = $co->prepare("UPDATE customer SET name = ?, note = ? WHERE id = ?");
-            $reqUpdate->execute(array($postData["name"], $postData["note"], $postData["id"]));
-            return "Modification réussie";
+            $reqUpdate = $co->prepare("UPDATE customer SET name = ?, note = ? WHERE code = ?");
+            $reqUpdate->execute(array($postData["name"], $postData["note"], $postData["code"]));
+            return "modif reussie";
         } catch(Exception $e) {
             return $e;
         }
@@ -44,9 +44,8 @@ class CustomerRepository
     public static function deleteCustomer(PDO $co, array $postData): string
     {
         try {
-            $reqUpdate = $co->prepare("DELETE FROM customer WHERE id = ?");
-            $reqUpdate->execute(array($postData["name"], $postData["note"], $postData["id"]));
-            return "Modification réussie";
+            $reqUpdate = $co->prepare("DELETE FROM customer WHERE code = ?");
+            $reqUpdate->execute(array($postData["code"]));
         } catch(Exception $e) {
             return $e;
         }

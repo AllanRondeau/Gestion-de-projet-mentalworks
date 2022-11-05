@@ -23,7 +23,7 @@ class HostRepository
     {
         try {
             $reqInsert = $co->prepare("INSERT INTO host(code, name, notes) VALUES(?, ?, ?)");
-            $reqInsert->execute(array($postData["code"], $postData["name"], $postData["notes"]));
+            $reqInsert->execute(array($postData["code"], $postData["name"], $postData["note"]));
             return "Insertion réussie";
         } catch(Exception $e) {
             return $e;

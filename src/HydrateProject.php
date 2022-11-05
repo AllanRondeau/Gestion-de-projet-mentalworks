@@ -26,7 +26,7 @@ class HydrateProject
 
         if($check)
         {
-            HydrateProject::$validProject = new Project($array["name"], $array["code"], $array["lastpass_folder"], $array["link_mocks_up"], 
+            HydrateProject::$validProject = new Project($array["name"], $array["code"], $array["lastpass_folder"], $array["link_mock_ups"], 
             $array["manage_server"], $array["notes"], $array["host_id"], $array["customer_id"]);
 
             return true;

@@ -1,12 +1,9 @@
 <?php
-//$host1 = new Host("test", "salut", "upload");
-//$customer1 = new Customer("sbhdf", "sdbkf", "skjdbf");
-//$projet1 = new Project("premier projet", "patate", "racine", "sbhdof", 1, "attention", $host1, $customer1);
-//$environnement = new Environnement("environment1", "http://", "000.000.000", 22, "ssh", "localhost", 232, $projet1);
-//$contact1 = new Contact("email@gmail.com", "06 36 98 65 74", "admin", $host1, $customer1);
-
-// lors du clic utilisateur pour sauvegarder un client
-
+require "./src/Controller/actionButtonCustomer.php";
+require "./src/Controller/actionButtonHost.php";
+require "./src/Controller/actionButtonProject.php";
+require 'vendor/autoload.php';
+$co = ConnexionBdd::Connexion();
 ?>
 
 <!doctype html>
@@ -72,7 +69,7 @@
       </article>
       <article class="hook" id="projectForm">
         <button id="backToProjectListBtn"><i class="fa-solid fa-arrow-left"></i>Retour à la liste des projets</button>
-        <form>
+        <form method="post">
           <label for="projectName">Nom</label>
           <input name="projectName">
           <label for="projectCode">Code interne</label>
@@ -148,7 +145,7 @@
             <input type="text" name="noteNewHost">
           </fieldset>
           <button type="submit" name="hostCancelBtn" class="cancelBtn">Annuler</button>
-          <button type="submit" id="hostSaveBtn"  class="saveBtn">Sauvegarder</button>
+          <button type="submit" name="hostInsertBtn" id="hostSaveBtn"  class="saveBtn">Sauvegarder</button>
         </form>
         <form method="post" id="updateContactFormHost" action="">
           <fieldset>

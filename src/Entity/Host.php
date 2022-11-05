@@ -16,9 +16,9 @@ class Host implements CommonPropertiesInterface
     use NotesTrait;
     private int $id;
     public function __construct(
-        private string $codeHost,
-        private string $nameHost,
-        private string $notesHost
+        private string $code,
+        private string $name,
+        private string $notes,
     ) {
         $this->id = 0;
     }

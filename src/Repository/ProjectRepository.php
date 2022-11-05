@@ -58,8 +58,8 @@ class ProjectRepository
     public static function deleteProject(PDO $co, array $postData): string
     {
         try {
-            $reqUpdate = $co->prepare("DELETE FROM project WHERE id = ?");
-            $reqUpdate->execute(array($postData["id"]));
+            $reqUpdate = $co->prepare("DELETE FROM project WHERE code = ?");
+            $reqUpdate->execute(array($postData["code"]));
             return "Modification réussie";
         } catch(Exception $e) {
             return $e;

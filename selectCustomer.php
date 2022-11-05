@@ -24,29 +24,6 @@ function getAllCustomer(array $allCustomer): array
     return $listCustomer;
 }
 
-
-if (isset($_POST["customerSaveBtn"])) {
-    if ($_POST["selectUserObject"] == null) {
-        if (HydrateCustomer::createCustomer(array("name" => $_POST["nameNewCustomer"], "code" => "code" . $_POST["nameNewCustomer"], "note" => $_POST["noteNewCustomer"]))) {
-            $cust = HydrateCustomer::getCustomer();
-            $valid = CustomerRepository::insertCustomer($co, array("name" => $_POST["nameNewCustomer"], "code" => "code" . $_POST["nameNewCustomer"], "note" => $_POST["noteNewCustomer"]));
-            echo $valid;
-        } else {
-            $errorInput = "La saisie n'est pas bonne !";
-            echo $errorInput;
-        }
-    } else {
-        if (HydrateCustomer::createCustomer($listCustomer[$_POST["selectUserObject"]], array("name" => $_POST["nameNewCustomer"], "code" => "code" . $_POST["nameNewCustomer"], "note" => $_POST["noteNewCustomer"]))) {
-            $cust = HydrateCustomer::getCustomer();
-            $valid = CustomerRepository::insertCustomer($co, array("name" => $_POST["nameNewCustomer"], "code" => "code" . $_POST["nameNewCustomer"], "note" => $_POST["noteNewCustomer"]));
-            echo $valid;
-        } else {
-            $errorInput = "La saisie n'est pas bonne !";
-            echo $errorInput;
-        }
-    }
-}
-
 foreach ($listCustomer as $key => $customer) {
     echo $key . " " . $customer->getName();
 }
