@@ -95,6 +95,7 @@ function implementDivWithProjects(arrayProject) {
         let implementProjects = Object.values(Object.values(arrayProject[i]));
         let j = i + 1;
         let newProjectDiv = document.createElement("div");
+        newProjectDiv.id = i;
         let newTitleProject = document.createElement("h6");
         let newContentProjet = document.createTextNode(arrayProject[0]);
         newTitleProject.appendChild(newContentProjet);
