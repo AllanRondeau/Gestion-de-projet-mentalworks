@@ -57,6 +57,7 @@ $co = ConnexionBdd::Connexion();
             <option value="10">10</option>
             <option value="15">15</option>
           </select>
+          <article id="projectListContainer"></article>
           <button type="button"><</button>
           <button type="button">1</button>
           <button type="button">2</button>

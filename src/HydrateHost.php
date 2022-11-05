@@ -26,7 +26,7 @@ class HydrateHost
 
         if($check)
         {
-            HydrateHost::$validHost = new Host($array["code"], $array["name"], $array["note"]);
+            HydrateHost::$validHost = new Host($array["code"], $array["name"], $array["notes"]);
             return true;
         }
         else

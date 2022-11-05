@@ -6,8 +6,9 @@ const dropdownHost = document.querySelector('#selectHostObject');
 const inputupdtHost = document.querySelectorAll('#newHostForm input');
 
 const selectProjectURL = 'selectProject.php';
+const projectListDiv = document.querySelector('#projectListContainer');
 const btnSubmitCustomer = document.querySelector('#customerSaveBtn');
-const btnSubmitHost = document.querySelector('#HostSaveBtn');
+const btnSubmitHost = document.querySelector('#hostSaveBtn');
 
 function asyncSelect(url) {
     return new Promise((resolution, reject) => {
@@ -31,13 +32,14 @@ promiseHost.then(value => implementSelectWithHost(value));
 promiseHost.then(value => updtHostInForm(value));
 
 const promiseProject = asyncSelect(selectProjectURL);
-
+promiseProject.then(value =>implementDivWithProjects(value));
+// promiseProject.then(value =>);
 
 
 function implementSelectWithCustomer(arrayCustomer) {
     for (let i = 0; i < arrayCustomer.length; i++) {
         let implementsCustomer = Object.values(Object.values(arrayCustomer[i]));
-        let j = i+1
+        let j = i + 1
         let newOption = new Option(implementsCustomer[0], j.toString());
         dropdownCustomer.add(newOption, undefined);
     }
@@ -46,15 +48,13 @@ function implementSelectWithCustomer(arrayCustomer) {
 
 function updtCustomerInForm(arrayCustomer) {
     dropdownCustomer.addEventListener('change', function () {
-        if (this.selectedIndex === 0){
-            inputupdtCustomer[1].disabled = true;
+        if (this.selectedIndex === 0) {
             btnSubmitCustomer.name = "customerInsertBtn";
             for (let i = 0; i < inputupdtCustomer.length; i++) {
                 inputupdtCustomer[i].value = "";
             }
-        }else{
+        } else {
             let implementOneCustomer = Object.values(Object.values(arrayCustomer[this.selectedIndex - 1]));
-            inputupdtCustomer[1].disabled = false;
             btnSubmitCustomer.name = "customerUpdateBtn";
             for (let i = 0; i < inputupdtCustomer.length; i++) {
                 inputupdtCustomer[i].value = implementOneCustomer[i];
@@ -66,7 +66,7 @@ function updtCustomerInForm(arrayCustomer) {
 function implementSelectWithHost(arrayHost) {
     for (let i = 0; i < arrayHost.length; i++) {
         let implementsHost = Object.values(Object.values(arrayHost[i]));
-        let j = i+1
+        let j = i + 1
         let newOption = new Option(implementsHost[0], j.toString());
         dropdownHost.add(newOption, undefined);
     }
@@ -74,16 +74,14 @@ function implementSelectWithHost(arrayHost) {
 
 function updtHostInForm(arrayHost) {
     dropdownHost.addEventListener('change', function () {
-
-        if (this.selectedIndex === 0){
-            inputupdtHost[1].disabled = true;
+        if (this.selectedIndex === 0) {
             btnSubmitHost.name = "hostInsertBtn";
             for (let i = 0; i < inputupdtHost.length; i++) {
                 inputupdtHost[i].value = "";
             }
-        }else{
+        } else {
             let implementOneHost = Object.values(Object.values(arrayHost[this.selectedIndex - 1]));
-            inputupdtHost[1].disabled = false;
+            console.log(this.selectedIndex);
             btnSubmitHost.name = "hostUpdateBtn";
             for (let i = 0; i < inputupdtHost.length; i++) {
                 inputupdtHost[i].value = implementOneHost[i];
@@ -92,3 +90,14 @@ function updtHostInForm(arrayHost) {
     });
 }
 
+function implementDivWithProjects(arrayProject) {
+    for (let i = 0; i < arrayProject.length; i++) {
+        let implementProjects = Object.values(Object.values(arrayProject[i]));
+        let j = i + 1;
+        let newProjectDiv = document.createElement("div");
+        let newTitleProject = document.createElement("h6");
+        let newContentProjet = document.createTextNode(arrayProject[0]);
+        newTitleProject.appendChild(newContentProjet);
+        newProjectDiv.appendChild(newTitleProject);
+    }
+}
