@@ -104,12 +104,13 @@ $co = ConnexionBdd::Connexion();
             <label for="nameNewCustomer">Nom</label>
             <input type="text" name="nameNewCustomer">
             <label for="codeNewCustomer">Code interne</label>
-            <input type="text" name="codeNewCustomer" placeholder="Champ généré automatiquement" disabled>
+            <input type="text" name="codeNewCustomer" placeholder="Champ généré automatiquement">
             <label for="noteNewCustomer">Notes / Remarques</label>
             <input type="text" name="noteNewCustomer">
           </fieldset>
           <button type="submit" name="customerCancelBtn" class="cancelBtn">Annuler</button>
           <button type="submit" id="customerSaveBtn" name="customerInsertBtn" class="saveBtn">Sauvegarder</button>
+          <button type="submit" id="ProjectSaveBtn" name="customerDeleteBtn" class="saveBtn">Supprimer</button>
         </form>
         <form method="post" id="updateContactForm" action="">
           <fieldset>
@@ -141,12 +142,13 @@ $co = ConnexionBdd::Connexion();
             <label for="nameNewHost">Nom</label>
             <input type="text" name="nameNewHost">
             <label for="codeNewHost">Code interne</label>
-            <input type="text" name="codeNewHost" placeholder=" Champ généré automatiquement" disabled>
+            <input type="text" name="codeNewHost" placeholder=" Champ généré automatiquement">
             <label for="noteNewHost">Notes / Remarques</label>
             <input type="text" name="noteNewHost">
           </fieldset>
           <button type="submit" name="hostCancelBtn" class="cancelBtn">Annuler</button>
           <button type="submit" name="hostInsertBtn" id="hostSaveBtn"  class="saveBtn">Sauvegarder</button>
+          <button type="submit" name="hostDeleteBtn" class="saveBtn">Supprimer</button>
         </form>
         <form method="post" id="updateContactFormHost" action="">
           <fieldset>

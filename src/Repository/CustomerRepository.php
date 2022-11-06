@@ -46,6 +46,7 @@ class CustomerRepository
         try {
             $reqUpdate = $co->prepare("DELETE FROM customer WHERE code = ?");
             $reqUpdate->execute(array($postData["code"]));
+            return "Suppression réussie";
         } catch(Exception $e) {
             return $e;
         }

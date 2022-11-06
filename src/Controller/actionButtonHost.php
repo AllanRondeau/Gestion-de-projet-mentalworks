@@ -30,13 +30,13 @@ if(isset($_POST["hostUpdateBtn"]))
     if (HydrateHost::createHost(array(
             "name" => $_POST["nameNewHost"], 
             "code" => $_POST["codeNewHost"], 
-            "note" => $_POST["noteNewHost"]))) 
+            "notes" => $_POST["noteNewHost"]))) 
     {
-        $cust = HydrateHost::getHost();
+        $host = HydrateHost::getHost();
         $valid = HostRepository::updateHost($co, array(
             "name" => $host->getName(), 
             "code" => $host->getCode(), 
-            "note" => $host->getNotes()));
+            "notes" => $host->getNotes()));
         echo $valid;
     } else {
         $errorInput = "La saisie n'est pas bonne !";

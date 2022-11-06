@@ -33,8 +33,8 @@ class HostRepository
     public static function updateHost(PDO $co, array $postData): string
     {
         try {
-            $reqUpdate = $co->prepare("UPDATE host SET code = ?, name = ?, note = ? WHERE id = ?");
-            $reqUpdate->execute(array($postData["name"], $postData["name"], $postData["notes"], $postData["id"]));
+            $reqUpdate = $co->prepare("UPDATE host SET code = ?, name = ?, notes = ? WHERE code = ?");
+            $reqUpdate->execute(array($postData["name"], $postData["name"], $postData["notes"], $postData["code"]));
             return "Modification réussie";
         } catch(Exception $e) {
             return $e;
@@ -44,9 +44,9 @@ class HostRepository
     public static function deleteHost(PDO $co, array $postData): string
     {
         try {
-            $reqUpdate = $co->prepare("DELETE FROM host WHERE id = ?");
-            $reqUpdate->execute(array($postData["id"]));
-            return "Modification réussie";
+            $reqUpdate = $co->prepare("DELETE FROM host WHERE code = ?");
+            $reqUpdate->execute(array($postData["code"]));
+            return "Suppression réussie";
         } catch(Exception $e) {
             return $e;
         }
